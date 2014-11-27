@@ -23,5 +23,10 @@ namespace Project3ProductionLtd
         {
             InitializeComponent();
         }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
