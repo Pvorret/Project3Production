@@ -1,8 +1,18 @@
 ﻿<Window x:Class="Project3ProductionLtd.OpretArbejdsplan"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Create Workplan" Height="350" Width="450">
+        Title="Create Workplan" Height="400" Width="250">
     <Grid>
+        <ComboBox Name="OrderDropdown" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="223"/>
+        <ComboBox Name="ProductDropdown" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="223"/>
+        <Label Name="ProductLabel" Content="Product:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="87" Height="35"/>
+        <Label Name="ProductNameLabel" Content="" FontSize="14" HorizontalAlignment="Left" Margin="97,82,0,0" VerticalAlignment="Top"/>
+        <Label Name="MachineRequiredLabel" Content="Machines Required" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="MachineRequiredListBox" HorizontalAlignment="Left" Height="78" Margin="10,140,0,0" FontSize="12" VerticalAlignment="Top" Width="193"/>
+        <Label Name="MachineAvailableLabel" Content="Machines Available" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="MachineAvailableListBox" HorizontalAlignment="Left" Height="78" Margin="10,257,0,0" FontSize="12" VerticalAlignment="Top" Width="193"/>
+        <Button Name="SubmitBtn" Content="Submit" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="CancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="97,340,0,0" VerticalAlignment="Top" Width="75"/>
         
     </Grid>
 </Window>
