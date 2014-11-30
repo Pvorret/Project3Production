@@ -26,6 +26,9 @@ namespace Project3ProductionLtd
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
+            PlanlæggerMenu planlægger = new PlanlæggerMenu();
+            planlægger.Show();
+            Close();
 
         }
     }

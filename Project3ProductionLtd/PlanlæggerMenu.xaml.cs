@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Project3ProductionLtd
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for PlanlæggerMenu.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class PlanlæggerMenu : Window
     {
-        public MainMenu()
+        public PlanlæggerMenu()
         {
             InitializeComponent();
         }
