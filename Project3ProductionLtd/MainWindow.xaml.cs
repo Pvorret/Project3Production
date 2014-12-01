@@ -23,14 +23,15 @@ namespace Project3ProductionLtd
         BekræftOrdre oav;
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            oav = new BekræftOrdre();
+            oav.Show();
+            Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            oav = new BekræftOrdre();
-            oav.Show();
-            Close();
+
 
         }
     }
