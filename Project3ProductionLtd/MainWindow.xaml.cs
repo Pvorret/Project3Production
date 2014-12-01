@@ -31,7 +31,20 @@ namespace Project3ProductionLtd
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            controller.connectToSql();
+            int id = controller.logIn(Username.Text, Password.Text);
+
+            if (id > 0 && id < 3) {
+
+            }
+            else if (id == 3) {
+
+            }
+            else if (id > 3) {
+
+            }
+            else {
+                MessageBox.Show("Username and Password does not match");
+            }
    
         }
     }
