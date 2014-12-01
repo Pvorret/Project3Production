@@ -53,10 +53,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BekræftOrdre.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,9 +60,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BekræftOrdre.xaml.cs">
-      <DependentUpon>BekræftOrdre.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -81,10 +74,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlanlæggerMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MaskineVindue.xaml.cs">
@@ -92,9 +81,6 @@
     </Compile>
     <Compile Include="OpretArbejdsplan.xaml.cs">
       <DependentUpon>OpretArbejdsplan.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PlanlæggerMenu.xaml.cs">
-      <DependentUpon>PlanlæggerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
