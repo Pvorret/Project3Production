@@ -46,7 +46,7 @@ namespace Project3ProductionLtd
 
             // Assign Window Title.
             //this.Title = "IsChecked = " + flag.ToString();
-                        if (NewDeadline.IsChecked == true)
+            if (NewDeadline.IsChecked == true)
             {
                 ConfirmOrder.Content = "Estimate";
             }
