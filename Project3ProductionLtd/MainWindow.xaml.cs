@@ -20,7 +20,7 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainWindow : Window
     {
-        OpretArbejdsplan oav;
+        BekræftOrdre oav;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Project3ProductionLtd
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            oav = new OpretArbejdsplan();
+            oav = new BekræftOrdre();
             oav.Show();
             Close();
 
