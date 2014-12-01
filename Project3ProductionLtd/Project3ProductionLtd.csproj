@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MainMenuProduktionsarbejder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenuProduktionsplanlægger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -70,6 +74,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="MainMenuProduktionsarbejder.xaml.cs">
+      <DependentUpon>MainMenuProduktionsarbejder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuProduktionsplanlægger.xaml.cs">
       <DependentUpon>MainMenuProduktionsplanlægger.xaml</DependentUpon>
     </Compile>
