@@ -31,7 +31,8 @@ namespace Project3ProductionLtd
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            
+            controller.connectToSql();
+   
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -12,6 +12,13 @@ namespace Project3ProductionLtd
     class Controller
     {
         
+        public int logIn(string username, string password)
+        {
+
+
+
+        }
+
 
         public void connectToSql()
         {
@@ -27,13 +34,9 @@ namespace Project3ProductionLtd
             }
             catch (Exception e)
             {
-                Messagebox.show(e);
+                MessageBox.Show(e.ToString());
             }
 
-
-         
         }
- 
-
     }
 }
