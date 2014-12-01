@@ -47,5 +47,6 @@ namespace Project3ProductionLtd
             }
             else
                 ConfirmOrder.Content = "Confirm";
+        }
     }
 }
