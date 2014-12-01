@@ -1,8 +1,0 @@
-﻿<Window x:Class="Project3ProductionLtd.BekræftOrdre"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BekræftOrdre" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
-</Window>
