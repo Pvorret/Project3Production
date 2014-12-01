@@ -9,7 +9,7 @@
         <Button Name="addnewcustomer" Content="Add New Customer" HorizontalAlignment="Left" Margin="52,127,0,0" VerticalAlignment="Top" Width="131"/>
         <Button Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="0,247,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="editcustomer" Content="Edit Customer" HorizontalAlignment="Left" Margin="67,167,0,0" VerticalAlignment="Top" Width="99"/>
-        <Button Name="showcatelog" Content="Show Catelog" HorizontalAlignment="Left" Margin="79,202,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="showcatelog" Content="Show Catelog" HorizontalAlignment="Left" Margin="67,202,0,0" VerticalAlignment="Top" Width="99"/>
 
     </Grid>
 </Window>
