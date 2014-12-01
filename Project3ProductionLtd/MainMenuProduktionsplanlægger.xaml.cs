@@ -12,15 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Project3ProductionLtd
-{
+namespace Project3ProductionLtd {
     /// <summary>
-    /// Interaction logic for MainMenuProduktionsarbejder.xaml
+    /// Interaction logic for MainMenuProduktionsplanlægger.xaml
     /// </summary>
-    public partial class MainMenuProduktionsarbejder : Window
-    {
-        public MainMenuProduktionsarbejder()
-        {
+    public partial class MainMenuProduktionsplanlægger : Window {
+        public MainMenuProduktionsplanlægger() {
             InitializeComponent();
         }
     }
