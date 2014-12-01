@@ -20,16 +20,18 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainWindow : Window
     {
+        Controller controller = new Controller();
+
         public MainWindow()
         {
             InitializeComponent(); 
             
         }
+        
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-
-
+            
         }
     }
 }
