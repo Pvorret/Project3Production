@@ -48,5 +48,10 @@ namespace Project3ProductionLtd
             else
                 ConfirmOrder.Content = "Confirm";
         }
+
+        private void ConfirmOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
