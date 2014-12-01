@@ -26,12 +26,5 @@ namespace Project3ProductionLtd
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            oav = new OpretArbejdsplan();
-            oav.Show();
-            Close();
-
-        }
     }
 }
