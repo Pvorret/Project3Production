@@ -20,11 +20,19 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainWindow : Window
     {
-        OpretArbejdsplan oav;
+        BekræftOrdre oav;
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            oav = new BekræftOrdre();
+            oav.Show();
+            Close();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }
