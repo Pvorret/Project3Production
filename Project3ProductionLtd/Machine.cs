@@ -10,6 +10,7 @@ namespace Project3ProductionLtd
     {
         public string Name { get; set; }
         public DateTime TimeUsed { get; set; }
+        public DateTime Deadline { get; set; }
 
         public string AssignWorker(string machine)
         {
