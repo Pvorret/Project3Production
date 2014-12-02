@@ -11,7 +11,15 @@ namespace Project3ProductionLtd
 {
     class Controller
     {
-        
+        Order order;
+        /*
+        public bool setOrderAsConfirmed()
+        {
+            order = new Order();
+            bool orderConfirmed;
+
+        }
+        */
         public int logIn(string inuserName, string inpassword)
         {
             string userName = inuserName;
