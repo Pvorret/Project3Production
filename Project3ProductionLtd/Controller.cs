@@ -20,6 +20,14 @@ namespace Project3ProductionLtd
 
         }
         */
+        /*
+        public Order printOrderList()
+        {
+
+
+
+        }
+         */
         public int logIn(string inuserName, string inpassword)
         {
             string userName = inuserName;
@@ -51,10 +59,8 @@ namespace Project3ProductionLtd
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
                 return 0;
             }
-
         }
 
 

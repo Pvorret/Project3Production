@@ -19,6 +19,7 @@ namespace Project3ProductionLtd {
     public partial class MainMenuProduktionsplanlægger : Window {
 
         MainWindow mainWin;
+        OpretArbejdsplan opretArbejdsplan;
         public MainMenuProduktionsplanlægger() {
             InitializeComponent();
         }
@@ -27,6 +28,13 @@ namespace Project3ProductionLtd {
         {
             mainWin = new MainWindow();
             mainWin.Show();
+            Close();
+        }
+
+        private void OpretArbejdsplanBtn_Click(object sender, RoutedEventArgs e)
+        {
+            opretArbejdsplan = new OpretArbejdsplan();
+            opretArbejdsplan.Show();
             Close();
         }
     }

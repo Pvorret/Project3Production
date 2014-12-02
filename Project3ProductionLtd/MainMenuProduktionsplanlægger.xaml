@@ -10,6 +10,7 @@
         <Button x:Name="orders" Content="Orders" HorizontalAlignment="Left" Margin="55,123,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="75" Click="logout_Click"/>
         <Label Content="1" HorizontalAlignment="Left" Margin="142,120,0,0" VerticalAlignment="Top" Height="35" Width="27"/>
+        <Button Name="OpretArbejdsplanBtn" Content="OpretArbejdsplan" HorizontalAlignment="Left" Margin="55,147,0,0" VerticalAlignment="Top" Width="104" Click="OpretArbejdsplanBtn_Click"/>
 
     </Grid>
 </Window>

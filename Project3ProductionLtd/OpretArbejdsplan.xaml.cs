@@ -17,17 +17,29 @@ namespace Project3ProductionLtd
     /// <summary>
     /// Interaction logic for OpretArbejdsplan.xaml
     /// </summary>
+    /// 
     public partial class OpretArbejdsplan : Window
     {
+        MainMenuProduktionsplanlægger menuPlanlægger;
         public OpretArbejdsplan()
         {
             InitializeComponent();
+            
+            ProductDropdown.Visibility = System.Windows.Visibility.Hidden;
+            ProductLabel.Visibility = System.Windows.Visibility.Hidden;
+            ProductNameLabel.Visibility = System.Windows.Visibility.Hidden;
+            MachineAvailableLabel.Visibility = System.Windows.Visibility.Hidden;
+            MachineAvailableListBox.Visibility = System.Windows.Visibility.Hidden;
+            MachineRequiredLabel.Visibility = System.Windows.Visibility.Hidden;
+            MachineRequiredListBox.Visibility = System.Windows.Visibility.Hidden;
+
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            menuPlanlægger = new MainMenuProduktionsplanlægger();
+            menuPlanlægger.Show();
+            Close();
         }
     }
 }
