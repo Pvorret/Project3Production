@@ -81,6 +81,8 @@
       <DependentUpon>BekræftOrdreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Machine.cs" />
     <Compile Include="MainMenuProduktionsarbejder.xaml.cs">
       <DependentUpon>MainMenuProduktionsarbejder.xaml</DependentUpon>
     </Compile>
@@ -110,6 +112,8 @@
     <Compile Include="OpretArbejdsplan.xaml.cs">
       <DependentUpon>OpretArbejdsplan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
