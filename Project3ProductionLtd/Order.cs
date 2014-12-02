@@ -17,7 +17,9 @@ namespace Project3ProductionLtd
         public double Width { get; set; }
         public double Height { get; set; }
         public double Spacing { get; set; }
+        public decimal Price { get; set; }
         public List<Product> _products { get; set; }
+        
         public Order(DateTime deadline, double width, double height, double spacing)
         {
             Deadline = deadline;
