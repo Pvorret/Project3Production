@@ -17,8 +17,17 @@ namespace Project3ProductionLtd {
     /// Interaction logic for MainMenuProduktionsplanlægger.xaml
     /// </summary>
     public partial class MainMenuProduktionsplanlægger : Window {
+
+        MainWindow mainWin;
         public MainMenuProduktionsplanlægger() {
             InitializeComponent();
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            mainWin = new MainWindow();
+            mainWin.Show();
+            Close();
         }
     }
 }

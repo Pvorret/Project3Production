@@ -19,9 +19,18 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainMenuSælger : Window
     {
+        MainWindow mainWin;
         public MainMenuSælger()
         {
             InitializeComponent();
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            mainWin = new MainWindow();
+            mainWin.Show();
+            Close();
+
         }
     }
 }

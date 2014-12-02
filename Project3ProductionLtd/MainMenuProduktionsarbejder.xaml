@@ -1,13 +1,13 @@
 ﻿<Window x:Class="Project3ProductionLtd.MainMenuProduktionsarbejder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainMenuProduktionsarbejder" Height="243" Width="238">
+        Title="MainMenuProduktionsarbejder" Height="245" Width="230" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Menu" HorizontalAlignment="Left" Margin="91,15,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="username Productionsarbjder" HorizontalAlignment="Left" Margin="33,44,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <Button Name="viewworkplan" Content="View Workplan" HorizontalAlignment="Left" Margin="79,89,0,0" VerticalAlignment="Top" Width="92"/>
-        <Button Name="viewpreviousworkplan" Content="View Previous Workplan" HorizontalAlignment="Left" Margin="50,125,0,0" VerticalAlignment="Top" Width="145"/>
-        <Button Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Menu" HorizontalAlignment="Left" Margin="87,17,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Productionsarbjder" HorizontalAlignment="Left" Margin="53,46,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Button Name="viewworkplan" Content="View Workplan" HorizontalAlignment="Left" Margin="68,90,0,0" VerticalAlignment="Top" Width="92"/>
+        <Button Name="viewpreviousworkplan" Content="View Previous Workplan" HorizontalAlignment="Left" Margin="39,126,0,0" VerticalAlignment="Top" Width="145"/>
+        <Button Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top" Width="75" Click="logout_Click"/>
 
     </Grid>
 </Window>
