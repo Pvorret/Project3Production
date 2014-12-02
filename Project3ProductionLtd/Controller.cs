@@ -16,7 +16,6 @@ namespace Project3ProductionLtd
         {
             string userName = inuserName;
             string password = inpassword;
-
             SqlConnection connect = new SqlConnection(
                 "Server=ealdb1.eal.local;" +
                 "Database=EJL01_DB;" +
@@ -26,25 +25,27 @@ namespace Project3ProductionLtd
             try
             {
                 connect.Open();
+
+                SqlCommand sqlCmd = new SqlCommand("getLoginId", connect);
+
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                
+                sqlCmd.Parameters.Add(new SqlParameter("@UserName", userName));
+                sqlCmd.Parameters.Add(new SqlParameter("@Password", password));
+
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                reader.Read(); //Gør at den faktisk kan læse outputtet fra databasen
+                
+                int id = int.Parse(Convert.ToString(reader["Id"]));
+                
+                return id;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+                return 0;
             }
-
-
-            SqlCommand sqlCmd = new SqlCommand("getLoginId", connect);
-
-            sqlCmd.CommandType = CommandType.StoredProcedure;
-
-            sqlCmd.Parameters.Add(new SqlParameter("@UserName", userName));
-            sqlCmd.Parameters.Add(new SqlParameter("@Password", password));
-
-            SqlDataReader reader = sqlCmd.ExecuteReader();
-
-            int id = int.Parse(reader["Id"].ToString());
-
-            return id;
 
         }
 
