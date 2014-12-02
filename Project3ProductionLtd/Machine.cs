@@ -8,5 +8,16 @@ namespace Project3ProductionLtd
 {
     class Machine
     {
+        public string Name { get; set; }
+        public DateTime TimeUsed { get; set; }
+
+        public string AssignWorker(string machine)
+        {
+            return "Worker Assigned";
+        }
+        public bool MachineInUse()
+        {
+            return true;
+        }
     }
 }
