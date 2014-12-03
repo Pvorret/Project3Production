@@ -73,10 +73,12 @@ namespace Project3ProductionLtd
         
         private void OrderDropdown_DropDownOpened(object sender, EventArgs e)
         {
-            
-            foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
+            if (OrderDropdown.Items.Count == 0)
             {
-                OrderDropdown.Items.Add(orderName.OrderName);
+                foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
+                {
+                    OrderDropdown.Items.Add(orderName.OrderName);
+                }
             }
         }
     }
