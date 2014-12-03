@@ -69,6 +69,11 @@ namespace Project3ProductionLtd
             {
                 return 0;
             }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
         }
         
 
