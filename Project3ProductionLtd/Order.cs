@@ -15,9 +15,9 @@ namespace Project3ProductionLtd
 
         public DateTime Deadline { get; set; }
         public string OrderName { get; set; }
-        public double Width { get; set; }
-        public double Height { get; set; }
-        public double Spacing { get; set; }
+        public decimal Width { get; set; }
+        public decimal Height { get; set; }
+        public decimal Spacing { get; set; }
         public decimal Price { get; set; }
         
         public List<Product> productList = new List<Product>();
@@ -26,7 +26,7 @@ namespace Project3ProductionLtd
         public string OrderProductName2 { get; set; }
         public int OrderProductAmount2 { get; set; }
         
-        public Order(DateTime deadline, double width, double height, double spacing)
+        public Order(DateTime deadline, decimal width, decimal height, decimal spacing)
         {
             Deadline = deadline;
             Width = width;

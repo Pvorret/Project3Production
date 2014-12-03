@@ -39,17 +39,12 @@ namespace Project3ProductionLtd
             return connect;
 
         }
-        /*
-        public int logIn(string inuserName, string inpassword)
+        
+        public static int logIn(string inuserName, string inpassword)
         {
             string userName = inuserName;
             string password = inpassword;
-            SqlConnection connect = new SqlConnection(
-                 "Server=ealdb1.eal.local;" +
-                 "Database=EJL01_DB;" +
-                 "User Id=ejl01_usr;" +
-                 "Password=Baz1nga1"
-                 );
+            SqlConnection connect = connectToSql();
 
             try
             {
@@ -75,7 +70,7 @@ namespace Project3ProductionLtd
                 return 0;
             }
         }
-        */
+        
 
         public static List<Order> getOrdersFromDatabaseToOrderList()
         {
@@ -99,19 +94,16 @@ namespace Project3ProductionLtd
                     Order newOrder = new Order()
                     {
                         Deadline = Convert.ToDateTime(reader["Deadline"]),
-                        /*Deadline = Convert.ToDateTime(reader["Deadline"]),
-                        Width = Convert.ToDouble(reader["Width"]),
-                        Height = Convert.ToDouble(reader["Height"]),
-                        Spacing = Convert.ToDouble(reader["Spacing"]),
-                        
+                        Width = Convert.ToDecimal(reader["Width"]),
+                        Height = Convert.ToDecimal(reader["Height"]),
+                        Spacing = Convert.ToDecimal(reader["Spacing"]),
+                        /*
                         OrderProductName1 = order.productList[i].Name,
                         OrderProductAmount1 = order.productList[i].Amount,
                         OrderProductName2 = order.productList[i].Name,
                         OrderProductAmount2 = order.productList[i].Amount,
-                        
-                        Price = Convert.ToDecimal(reader["Price"]),
-                        OrderName = Convert.ToString(reader["OrderName"])
                         */
+                        Price = Convert.ToDecimal(reader["Price"]),
                         OrderName = Convert.ToString(reader["OrderName"])
                     };
                     orderList.Add(newOrder);
