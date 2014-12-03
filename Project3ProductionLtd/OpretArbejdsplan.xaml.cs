@@ -61,14 +61,6 @@ namespace Project3ProductionLtd
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            /*
-            foreach (Order width in order.orderList)
-            {
-                OrderDropdown.Items.Add(width);
-
-            }
-            */
-
         }
         
         private void OrderDropdown_DropDownOpened(object sender, EventArgs e)
@@ -76,7 +68,7 @@ namespace Project3ProductionLtd
             
             foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
             {
-                OrderDropdown.Items.Add(orderName.OrderName);
+                    OrderDropdown.Items.Add(orderName.OrderName);
             }
         }
     }
