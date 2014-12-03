@@ -85,24 +85,25 @@ namespace Project3ProductionLtd
                 Order order = new Order();
 
                 reader = sqlCmd.ExecuteReader();
-
+                int i = -1;
                 while(reader.Read())
                 {
-                    //order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
-                    //order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+                    order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                    order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
 
+                    i++;
                     Order newOrder = new Order()
                     {
                         Deadline = Convert.ToDateTime(reader["Deadline"]),
                         Width = Convert.ToDecimal(reader["Width"]),
                         Height = Convert.ToDecimal(reader["Height"]),
                         Spacing = Convert.ToDecimal(reader["Spacing"]),
-                        /*
+                        
                         OrderProductName1 = order.productList[i].Name,
                         OrderProductAmount1 = order.productList[i].Amount,
                         OrderProductName2 = order.productList[i].Name,
                         OrderProductAmount2 = order.productList[i].Amount,
-                        */
+                        
                         Price = Convert.ToDecimal(reader["Price"]),
                         OrderName = Convert.ToString(reader["OrderName"])
                     };
