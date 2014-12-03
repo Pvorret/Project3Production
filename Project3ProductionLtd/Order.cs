@@ -14,11 +14,17 @@ namespace Project3ProductionLtd
     {
 
         public DateTime Deadline { get; set; }
+        public string OrderName { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
         public double Spacing { get; set; }
         public decimal Price { get; set; }
-        public List<Product> _products { get; set; }
+        
+        public List<Product> productList = new List<Product>();
+        public string OrderProductName1 { get; set; }
+        public int OrderProductAmount1 { get; set; }
+        public string OrderProductName2 { get; set; }
+        public int OrderProductAmount2 { get; set; }
         
         public Order(DateTime deadline, double width, double height, double spacing)
         {
@@ -30,40 +36,13 @@ namespace Project3ProductionLtd
         public Order(DateTime deadline, List<Product> products)
         {
             Deadline = deadline;
-            _products = products;
+            productList = products;
         }
-        /*
+        
         public Order()
-        {
-            SqlConnection connect = new SqlConnection(
-                "Server=ealdb1.eal.local;" +
-                "Database=EJL01_DB;" +
-                "User Id=ejl01_usr;" +
-                "Password=Baz1nga1"
-                );
-            try
-            {
-                connect.Open();
-
-                SqlCommand sqlCmd = new SqlCommand("getLoginId", connect);
-
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                sqlCmd.Parameters.Add(new SqlParameter("@UserName", userName));
-                sqlCmd.Parameters.Add(new SqlParameter("@Password", password));
-
-                SqlDataReader reader = sqlCmd.ExecuteReader();
-
-                reader.Read(); //Gør at den faktisk kan læse outputtet fra databasen
-               
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                
-            }
-         
+        { 
+        
         }
-         */ 
-    }
+        
+     }
 }

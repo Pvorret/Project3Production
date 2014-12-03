@@ -9,9 +9,9 @@ using System.Data.SqlClient;
 
 namespace Project3ProductionLtd
 {
-    class Controller
+    static class Controller
     {
-        Order order;
+        
         /*
         public bool setOrderAsConfirmed()
         {
@@ -28,16 +28,29 @@ namespace Project3ProductionLtd
 
         }
          */
-        public int logIn(string inuserName, string inpassword)
+        public static SqlConnection connectToSql()
         {
-            string userName = inuserName;
-            string password = inpassword;
             SqlConnection connect = new SqlConnection(
                 "Server=ealdb1.eal.local;" +
                 "Database=EJL01_DB;" +
                 "User Id=ejl01_usr;" +
                 "Password=Baz1nga1"
                 );
+            return connect;
+
+        }
+        /*
+        public int logIn(string inuserName, string inpassword)
+        {
+            string userName = inuserName;
+            string password = inpassword;
+            SqlConnection connect = new SqlConnection(
+                 "Server=ealdb1.eal.local;" +
+                 "Database=EJL01_DB;" +
+                 "User Id=ejl01_usr;" +
+                 "Password=Baz1nga1"
+                 );
+
             try
             {
                 connect.Open();
@@ -57,30 +70,64 @@ namespace Project3ProductionLtd
                 
                 return id;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return 0;
             }
         }
+        */
 
-
-        public static void connectToSql()
+        public static List<Order> getOrdersFromDatabaseToOrderList()
         {
-            SqlConnection connect = new SqlConnection(
-                "Server=ealdb1.eal.local;" +
-                "Database=EJL01_DB;" +
-                "User Id=ejl01_usr;" +
-                "Password=Baz1nga1"
-                );
+            SqlConnection connect = connectToSql();
+            List<Order> orderList = new List<Order>();
             try
             {
                 connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnOrderInformation", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                Order order = new Order();
+
+                reader = sqlCmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    //order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                    //order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+
+                    Order newOrder = new Order()
+                    {
+                        Deadline = Convert.ToDateTime(reader["Deadline"]),
+                        /*Deadline = Convert.ToDateTime(reader["Deadline"]),
+                        Width = Convert.ToDouble(reader["Width"]),
+                        Height = Convert.ToDouble(reader["Height"]),
+                        Spacing = Convert.ToDouble(reader["Spacing"]),
+                        
+                        OrderProductName1 = order.productList[i].Name,
+                        OrderProductAmount1 = order.productList[i].Amount,
+                        OrderProductName2 = order.productList[i].Name,
+                        OrderProductAmount2 = order.productList[i].Amount,
+                        
+                        Price = Convert.ToDecimal(reader["Price"]),
+                        OrderName = Convert.ToString(reader["OrderName"])
+                        */
+                        OrderName = Convert.ToString(reader["OrderName"])
+                    };
+                    orderList.Add(newOrder);
+
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return orderList;
         }
     }
 }

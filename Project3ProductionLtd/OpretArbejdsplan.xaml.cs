@@ -40,6 +40,44 @@ namespace Project3ProductionLtd
             menuPlanlægger = new MainMenuProduktionsplanlægger();
             menuPlanlægger.Show();
             Close();
+            
+        }
+
+        private void OrderDropdown_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+
+
+            /*
+            foreach (Order width in order.orderList)
+            {
+                OrderDropdown.Items.Add(width);
+
+            }
+            */
+
+        }
+
+        private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            /*
+            foreach (Order width in order.orderList)
+            {
+                OrderDropdown.Items.Add(width);
+
+            }
+            */
+
+        }
+        
+        private void OrderDropdown_DropDownOpened(object sender, EventArgs e)
+        {
+            
+            foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
+            {
+                OrderDropdown.Items.Add(orderName.OrderName);
+            }
         }
     }
 }

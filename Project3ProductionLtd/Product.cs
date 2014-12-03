@@ -18,6 +18,8 @@ namespace Project3ProductionLtd
         public double Spacing { get; set; }
         public string Material { get; set; }
         public double durability { get; set; }
+        public int Amount { get; set; }
+
         public List<Machine> machineList = new List<Machine>();
 
 
