@@ -96,6 +96,7 @@ namespace Project3ProductionLtd
             MachineAvailableListBox.IsEnabled = true;
             MachineRequiredLabel.IsEnabled = true;
             MachineRequiredListBox.IsEnabled = true;
+
    
             
 
