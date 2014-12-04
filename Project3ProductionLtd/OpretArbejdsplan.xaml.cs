@@ -57,7 +57,7 @@ namespace Project3ProductionLtd
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
-                if (OrderDropdown.SelectedItem == Controller.orderList[i].OrderName)//Find ud af hvorfor der er en grøn streg
+                if (OrderDropdown.SelectedItem.Equals(Controller.orderList[i].OrderName))//Find ud af hvorfor der er en grøn streg
                 {
                     if (Controller.orderList[i].OrderProductName1 != "")
                     {
