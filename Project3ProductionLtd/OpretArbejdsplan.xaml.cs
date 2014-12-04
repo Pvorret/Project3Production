@@ -62,16 +62,17 @@ namespace Project3ProductionLtd
                     if (Controller.orderList[i].OrderProductName1 != "")
                     {
                         ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
+                        if (Controller.orderList[i].OrderProductName2 != "")
+                        {
+                        ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
+                        }
                     }
                     else if (Controller.orderList[i].OrderProductName2 != "")
                     {
                         ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
                     }
                 }
-                
             }
-            
-            
             ProductDropdown.IsEnabled = true;
 
         }
@@ -89,7 +90,12 @@ namespace Project3ProductionLtd
 
         private void ProductDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            ProductLabel.IsEnabled = false;
+            ProductNameLabel.IsEnabled = false;
+            MachineAvailableLabel.IsEnabled = false;
+            MachineAvailableListBox.IsEnabled = false;
+            MachineRequiredLabel.IsEnabled = false;
+            MachineRequiredListBox.IsEnabled = false;   
         }
 }
 }
