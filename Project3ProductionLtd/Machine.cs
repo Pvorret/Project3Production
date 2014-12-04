@@ -12,7 +12,8 @@ namespace Project3ProductionLtd
     class Machine
     {
         public string Name { get; set; }
-        public DateTime TimeUsed { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime Endtime { get; set; }
         public DateTime Deadline { get; set; }
 
         public string AssignWorker(string machine)
