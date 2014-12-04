@@ -25,13 +25,13 @@ namespace Project3ProductionLtd
         {
             InitializeComponent();
             
-            ProductDropdown.Visibility = System.Windows.Visibility.Hidden;
-            ProductLabel.Visibility = System.Windows.Visibility.Hidden;
-            ProductNameLabel.Visibility = System.Windows.Visibility.Hidden;
-            MachineAvailableLabel.Visibility = System.Windows.Visibility.Hidden;
-            MachineAvailableListBox.Visibility = System.Windows.Visibility.Hidden;
-            MachineRequiredLabel.Visibility = System.Windows.Visibility.Hidden;
-            MachineRequiredListBox.Visibility = System.Windows.Visibility.Hidden;
+            ProductDropdown.IsEnabled = false;
+            ProductLabel.IsEnabled = false;
+            ProductNameLabel.IsEnabled = false;
+            MachineAvailableLabel.IsEnabled = false;
+            MachineAvailableListBox.IsEnabled = false;
+            MachineRequiredLabel.IsEnabled = false;
+            MachineRequiredListBox.IsEnabled = false;
 
         }
 
@@ -46,21 +46,17 @@ namespace Project3ProductionLtd
         private void OrderDropdown_Loaded(object sender, RoutedEventArgs e)
         {
             
-
-
-            /*
-            foreach (Order width in order.orderList)
-            {
-                OrderDropdown.Items.Add(width);
-
-            }
-            */
-
         }
 
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            if (OrderDropdown.SelectedItem == Controller.orderList[0].OrderName)
+            {
+                ProductDropdown.Items.Add(Controller.orderList[0].OrderProductName1);
+                ProductDropdown.Items.Add(Controller.orderList[0].OrderProductName2);
+            }
+            ProductDropdown.IsEnabled = true;
+
         }
         
         private void OrderDropdown_DropDownOpened(object sender, EventArgs e)

@@ -11,22 +11,17 @@ namespace Project3ProductionLtd
 {
     static class Controller
     {
-        
+        public static List<Order> orderList;
         /*
         public bool setOrderAsConfirmed()
         {
             order = new Order();
             bool orderConfirmed;
-
         }
         */
         /*
         public Order printOrderList()
-        {
-
-
-
-        }
+        { }
          */
         public static SqlConnection connectToSql()
         {
@@ -39,7 +34,6 @@ namespace Project3ProductionLtd
             return connect;
 
         }
-        
         public static int logIn(string inuserName, string inpassword)
         {
             string userName = inuserName;
@@ -80,7 +74,7 @@ namespace Project3ProductionLtd
         public static List<Order> getOrdersFromDatabaseToOrderList()
         {
             SqlConnection connect = connectToSql();
-            List<Order> orderList = new List<Order>();
+            orderList = new List<Order>();
             try
             {
                 connect.Open();
