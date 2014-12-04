@@ -49,20 +49,28 @@ namespace Project3ProductionLtd
         }
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            foreach (Order name in Controller.orderList)
+            {
+                ProductDropdown.Items.Remove(name.OrderProductName1);
+                ProductDropdown.Items.Remove(name.OrderProductName2);
+            }
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
-                foreach (Order name in Controller.orderList)
+                if (OrderDropdown.SelectedItem == Controller.orderList[i].OrderName)//Find ud af hvorfor der er en grøn streg
                 {
-                    ProductDropdown.Items.Remove(name.OrderName);
+                    if (Controller.orderList[i].OrderProductName1 != "")
+                    {
+                        ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
+                    }
+                    else if (Controller.orderList[i].OrderProductName2 != "")
+                    {
+                        ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
+                    }
                 }
-                if (OrderDropdown.SelectedItem == Controller.orderList[i].OrderName)
-                {
-                    ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
-                    ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
-                }
+                
             }
+            
             
             ProductDropdown.IsEnabled = true;
 
