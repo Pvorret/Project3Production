@@ -40,7 +40,6 @@ namespace Project3ProductionLtd
             menuPlanlægger = new MainMenuProduktionsplanlægger();
             menuPlanlægger.Show();
             Close();
-            
         }
 
         private void OrderDropdown_Loaded(object sender, RoutedEventArgs e)
