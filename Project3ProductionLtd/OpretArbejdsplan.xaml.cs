@@ -96,8 +96,26 @@ namespace Project3ProductionLtd
             MachineRequiredLabel.IsEnabled = true;
             MachineRequiredListBox.IsEnabled = true;
 
-   
+            /*foreach (Order name in Controller.orderList)
+            {
+                ProductDropdown.Items.Remove(name.OrderProductName1);
+                ProductDropdown.Items.Remove(name.OrderProductName2);
+            }*/
+
+            for (int i = 0; i < Controller.orderList.Count; i++)
+            {
+                if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName1))
+                {
+                    ProductNameLabel.Content = Controller.orderList[i].OrderProductName1;
+                }
+                else if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName2))
+                {
+                    ProductNameLabel.Content = Controller.orderList[i].OrderProductName2;
+                }
+                
+            }
             
+
 
         }
 }

@@ -6,7 +6,7 @@
         <ComboBox Name="OrderDropdown" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="223" SelectionChanged="OrderDropdown_SelectionChanged" DropDownOpened="OrderDropdown_DropDownOpened"/>
         <ComboBox Name="ProductDropdown" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="223" SelectionChanged="ProductDropdown_SelectionChanged"/>
         <Label Name="ProductLabel" Content="Product:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="87" Height="35"/>
-        <Label Name="ProductNameLabel" Content="" FontSize="14" HorizontalAlignment="Left" Margin="97,82,0,0" VerticalAlignment="Top"/>
+        <Label Name="ProductNameLabel" Content="" FontSize="14" HorizontalAlignment="Left" Margin="75,80,0,0" VerticalAlignment="Top"/>
         <Label Name="MachineRequiredLabel" Content="Machines Required" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
         <ListBox Name="MachineRequiredListBox" HorizontalAlignment="Left" Height="78" Margin="10,140,0,0" FontSize="12" VerticalAlignment="Top" Width="193"/>
         <Label Name="MachineAvailableLabel" Content="Machines Available" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top"/>
