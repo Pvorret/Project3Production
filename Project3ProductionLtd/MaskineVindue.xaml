@@ -4,7 +4,7 @@
         Title="Maskine" Height="310" Width="300">
     <Grid>
         <Label Name="MachineLabel"  Content="Machine:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Name="MachineNameLabel" Content="Lazercutter" FontSize="12" HorizontalAlignment="Left" Margin="75,12,0,0" VerticalAlignment="Top"/>
+        <Label Name="MachineNameLabel" Content="" FontSize="12" HorizontalAlignment="Left" Margin="75,12,0,0" VerticalAlignment="Top"/>
         <Label Name="StartTimeLabel" Content="Start Time" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="26,39,0,0" VerticalAlignment="Top"/>
         <Label Name="EndTimeLabel" Content="End Time" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="176,39,0,0" VerticalAlignment="Top"/>
         <TextBox Name="StartTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="26,70,0,0" TextWrapping="Wrap" Text="dd/mm/yy" VerticalAlignment="Top" Width="80"/>

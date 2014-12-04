@@ -69,7 +69,10 @@ namespace Project3ProductionLtd
                 connect.Dispose();
             }
         }
-        
+        public static List<Product> getProductsFromDatabaseToProductList()
+        {
+
+        }
 
         public static List<Order> getOrdersFromDatabaseToOrderList()
         {

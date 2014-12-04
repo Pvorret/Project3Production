@@ -19,14 +19,17 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MaskineVindue : Window
     {
+        OpretArbejdsplan opretArbejdsplanMenu = new OpretArbejdsplan();
         public MaskineVindue()
         {
             InitializeComponent();
         }
 
+
         private void ReturnBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            opretArbejdsplanMenu.Show();
+            Close();
         }
     }
 }
