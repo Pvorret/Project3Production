@@ -22,6 +22,8 @@ namespace Project3ProductionLtd
 
         public List<Machine> machineList = new List<Machine>();
 
+        public List<Product> productCatalog = new List<Product>();
+
 
         public bool setProdMachineDeadline()
         {

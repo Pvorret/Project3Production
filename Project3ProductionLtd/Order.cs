@@ -20,7 +20,9 @@ namespace Project3ProductionLtd
         public decimal Spacing { get; set; }
         public decimal Price { get; set; }
         
-        public List<Product> productList = new List<Product>();
+        public List<Product> product1List = new List<Product>();
+        public List<Product> product2List = new List<Product>();
+        
         public string OrderProductName1 { get; set; }
         public int OrderProductAmount1 { get; set; }
         public string OrderProductName2 { get; set; }
@@ -33,10 +35,11 @@ namespace Project3ProductionLtd
             Height = height;
             Spacing = spacing;
         }
-        public Order(DateTime deadline, List<Product> products)
+        public Order(DateTime deadline, List<Product> product1, List<Product> product2)
         {
             Deadline = deadline;
-            productList = products;
+            product1List = product1;
+            product2List = product2;
         }
         
         public Order()

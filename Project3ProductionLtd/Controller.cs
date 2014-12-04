@@ -48,16 +48,16 @@ namespace Project3ProductionLtd
                 SqlCommand sqlCmd = new SqlCommand("getLoginId", connect);
 
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                
+
                 sqlCmd.Parameters.Add(new SqlParameter("@UserName", userName));
                 sqlCmd.Parameters.Add(new SqlParameter("@Password", password));
 
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 reader.Read(); //Gør at den faktisk kan læse outputtet fra databasen
-                
+
                 int id = int.Parse(Convert.ToString(reader["Id"]));
-                
+
                 return id;
             }
             catch (Exception)
@@ -80,7 +80,7 @@ namespace Project3ProductionLtd
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());   
+                MessageBox.Show(e.ToString());
             }
             finally
             {
@@ -104,19 +104,25 @@ namespace Project3ProductionLtd
 
                 reader = sqlCmd.ExecuteReader();
                 int i = -1;
-                while(reader.Read())
+                int k = -1;
+                while (reader.Read())
                 {
+                    //Der er to løsninger
+                    // Løsning 1: Bruger 2 produktlister til at opbevare produkterne i. En til ProductNo1 og en til ProductNo2. - Virker
+                    // Løsning 2: Den som der var der før som ikke virker.
                     if ("" == Convert.ToString(reader["ProductNo2"]))
                     {
-                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                        order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                        i++;
                     }
 
-                    else if(Convert.ToString(reader["ProductNo2"]) != "")
+                    else if (Convert.ToString(reader["ProductNo2"]) != "")
                     {
-                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
-                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+                        order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                        order.product2List.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+                        i++;
+                        k++;
                     }
-                    i++;
 
                     if ("" == Convert.ToString(reader["ProductNo2"]))
                     {
@@ -126,10 +132,8 @@ namespace Project3ProductionLtd
                             Width = Convert.ToDecimal(reader["Width"]),
                             Height = Convert.ToDecimal(reader["Height"]),
                             Spacing = Convert.ToDecimal(reader["Spacing"]),
-
-                            OrderProductName1 = order.productList[i].Name,
-                            OrderProductAmount1 = order.productList[i].Amount,
-
+                            OrderProductName1 = order.product1List[i].Name,
+                            OrderProductAmount1 = order.product1List[i].Amount,
                             Price = Convert.ToDecimal(reader["Price"]),
                             OrderName = Convert.ToString(reader["OrderName"])
                         };
@@ -137,7 +141,74 @@ namespace Project3ProductionLtd
                     }
                     else if (Convert.ToString(reader["ProductNo2"]) != "")
                     {
+                        Order anotherOrder = new Order()
+                        {
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Width = Convert.ToDecimal(reader["Width"]),
+                            Height = Convert.ToDecimal(reader["Height"]),
+                            Spacing = Convert.ToDecimal(reader["Spacing"]),
+
+                            OrderProductName1 = order.product1List[i].Name,
+                            OrderProductAmount1 = order.product1List[i].Amount,
+                            OrderProductName2 = order.product2List[k].Name,
+                            OrderProductAmount2 = order.product2List[k].Amount,
+
+                            Price = Convert.ToDecimal(reader["Price"]),
+                            OrderName = Convert.ToString(reader["OrderName"])
+                        };
+                        orderList.Add(anotherOrder);
+                    }
+                    /*
+                     Løsning som ikke helt virker
+                    if ("" == Convert.ToString(reader["ProductNo2"]))
+                    {
+                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                        if (order.productList.Count > (Convert.ToInt32(reader["OrderID"]) + 1))
+                        {
+                            //i--;
+                            i++;
+                        }
+                    }
+
+                    else if (Convert.ToString(reader["ProductNo2"]) != "")
+                    {
+                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                        order.productList.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+                        k++;
+                        if (order.productList.Count > (Convert.ToInt32(reader["OrderID"]) + 1))
+                        {
+                            i++;
+                            k++;
+                        }
+                    }
+                    i++;
+                    //if ((i + 1)== order.productList.Count)
+                    //{
+                    //    i++;
+                    //}
+                    if(i > k)
+                    {
+                        i--;
+                        k++;
+                    }
+                    if ("" == Convert.ToString(reader["ProductNo2"]))
+                    {
                         Order newOrder = new Order()
+                        {
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Width = Convert.ToDecimal(reader["Width"]),
+                            Height = Convert.ToDecimal(reader["Height"]),
+                            Spacing = Convert.ToDecimal(reader["Spacing"]),
+                            OrderProductName1 = order.productList[i].Name,
+                            OrderProductAmount1 = order.productList[i].Amount,
+                            Price = Convert.ToDecimal(reader["Price"]),
+                            OrderName = Convert.ToString(reader["OrderName"])
+                        };
+                        orderList.Add(newOrder);
+                    }
+                    else if (Convert.ToString(reader["ProductNo2"]) != "")
+                    {
+                        Order anotherOrder = new Order()
                         {
                             Deadline = Convert.ToDateTime(reader["Deadline"]),
                             Width = Convert.ToDecimal(reader["Width"]),
@@ -146,15 +217,15 @@ namespace Project3ProductionLtd
 
                             OrderProductName1 = order.productList[i].Name,
                             OrderProductAmount1 = order.productList[i].Amount,
-                            OrderProductName2 = order.productList[i+1].Name,
-                            OrderProductAmount2 = order.productList[i+1].Amount,
+                            OrderProductName2 = order.productList[k].Name,
+                            OrderProductAmount2 = order.productList[k].Amount,
 
                             Price = Convert.ToDecimal(reader["Price"]),
                             OrderName = Convert.ToString(reader["OrderName"])
                         };
-                        orderList.Add(newOrder);
+                        orderList.Add(anotherOrder);
                     }
-
+                    */
                 }
             }
             catch (Exception e)
