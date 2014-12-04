@@ -13,17 +13,16 @@ namespace Project3ProductionLtd
     {
         public string Name { get; set; }
         public DateTime OverallTime { get; set; }
-        public double Width { get; set; }
-        public double Height { get; set; }
-        public double Spacing { get; set; }
+        public decimal Width { get; set; }
+        public decimal Height { get; set; }
+        public decimal Spacing { get; set; }
         public string Material { get; set; }
         public double durability { get; set; }
         public int Amount { get; set; }
+        public decimal Price { get; set; }
+
 
         public List<Machine> machineList = new List<Machine>();
-
-        public List<Product> productCatalog = new List<Product>();
-
 
         public bool setProdMachineDeadline()
         {

@@ -76,6 +76,28 @@ namespace Project3ProductionLtd
             productList = new List<Product>();
             try
             {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnProductInformation", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if(!Convert.ToString(reader["Name"]).Contains('S'))
+                    {
+                        Product product = new Product()
+                        {
+                            Name = Convert.ToString(reader["Name"]),
+                            Width = Convert.ToDecimal(reader["Width"]),
+                            Height = Convert.ToDecimal(reader["Height"]),
+                            Spacing = Convert.ToDecimal(reader["Spacing"]),
+                            Price = Convert.ToDecimal(reader["Price"])
+                        };
+                        productList.Add(product);
+                    }
+                    
+                }
 
             }
             catch (Exception e)
@@ -89,7 +111,44 @@ namespace Project3ProductionLtd
             }
             return productList;
         }
+        public static void addMachinesToProductLists()
+        {
 
+        }
+
+        public static int isOrderConfirmed()
+        {
+            SqlConnection connect = connectToSql();
+            int isConfirmed = 0;
+
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnOrderInformation", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    if (Convert.ToInt32(reader["confirm"]).Equals(1))
+                    {
+                        isConfirmed = isConfirmed + 1;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return isConfirmed;
+        }
         public static List<Order> getOrdersFromDatabaseToOrderList()
         {
             SqlConnection connect = connectToSql();
@@ -101,8 +160,8 @@ namespace Project3ProductionLtd
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader;
                 Order order = new Order();
-
                 reader = sqlCmd.ExecuteReader();
+
                 int i = -1;
                 int k = -1;
                 while (reader.Read())

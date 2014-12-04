@@ -20,8 +20,13 @@ namespace Project3ProductionLtd {
 
         MainWindow mainWin;
         OpretArbejdsplan opretArbejdsplan;
-        public MainMenuProduktionsplanlægger() {
+        public MainMenuProduktionsplanlægger() 
+        {
             InitializeComponent();
+            if (Controller.isOrderConfirmed() > 0)
+            {
+                UnConfirmedOrderLabel.Content = Controller.isOrderConfirmed();
+            }
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
