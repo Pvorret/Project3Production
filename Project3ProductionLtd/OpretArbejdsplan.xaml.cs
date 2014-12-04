@@ -57,7 +57,7 @@ namespace Project3ProductionLtd
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
-                if (OrderDropdown.SelectedItem.Equals(Controller.orderList[i].OrderName))//Find ud af hvorfor der er en grøn streg
+                if (OrderDropdown.SelectedItem.Equals(Controller.orderList[i].OrderName))
                 {
                     if (Controller.orderList[i].OrderProductName1 != "")
                     {
@@ -90,12 +90,15 @@ namespace Project3ProductionLtd
 
         private void ProductDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ProductLabel.IsEnabled = false;
-            ProductNameLabel.IsEnabled = false;
-            MachineAvailableLabel.IsEnabled = false;
-            MachineAvailableListBox.IsEnabled = false;
-            MachineRequiredLabel.IsEnabled = false;
-            MachineRequiredListBox.IsEnabled = false;   
+            ProductLabel.IsEnabled = true;
+            ProductNameLabel.IsEnabled = true;
+            MachineAvailableLabel.IsEnabled = true;
+            MachineAvailableListBox.IsEnabled = true;
+            MachineRequiredLabel.IsEnabled = true;
+            MachineRequiredListBox.IsEnabled = true;
+   
+            
+
         }
 }
 }
