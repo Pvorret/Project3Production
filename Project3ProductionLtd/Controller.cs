@@ -100,8 +100,8 @@ namespace Project3ProductionLtd
                         
                         OrderProductName1 = order.productList[i].Name,
                         OrderProductAmount1 = order.productList[i].Amount,
-                        OrderProductName2 = order.productList[i].Name,
-                        OrderProductAmount2 = order.productList[i].Amount,
+                        OrderProductName2 = order.productList[i+1].Name,
+                        OrderProductAmount2 = order.productList[i+1].Amount,
                         
                         Price = Convert.ToDecimal(reader["Price"]),
                         OrderName = Convert.ToString(reader["OrderName"])

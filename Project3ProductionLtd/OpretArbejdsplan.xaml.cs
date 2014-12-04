@@ -47,14 +47,23 @@ namespace Project3ProductionLtd
         {
             
         }
-
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (OrderDropdown.SelectedItem == Controller.orderList[0].OrderName)
+            
+
+            for (int i = 0; i < Controller.orderList.Count; i++)
             {
-                ProductDropdown.Items.Add(Controller.orderList[0].OrderProductName1);
-                ProductDropdown.Items.Add(Controller.orderList[0].OrderProductName2);
+                foreach (Order name in Controller.orderList)
+                {
+                    ProductDropdown.Items.Remove(name.OrderName);
+                }
+                if (OrderDropdown.SelectedItem == Controller.orderList[i].OrderName)
+                {
+                    ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
+                    ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
+                }
             }
+            
             ProductDropdown.IsEnabled = true;
 
         }
@@ -69,5 +78,10 @@ namespace Project3ProductionLtd
             }
         }
     }
+
+        private void ProductDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
 }
 }

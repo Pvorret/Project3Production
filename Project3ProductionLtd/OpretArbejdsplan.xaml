@@ -4,7 +4,7 @@
         Title="Create Workplan" Height="400" Width="250" WindowStartupLocation="CenterScreen">
     <Grid>
         <ComboBox Name="OrderDropdown" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="223" SelectionChanged="OrderDropdown_SelectionChanged" DropDownOpened="OrderDropdown_DropDownOpened"/>
-        <ComboBox Name="ProductDropdown" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="223"/>
+        <ComboBox Name="ProductDropdown" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="223" SelectionChanged="ProductDropdown_SelectionChanged"/>
         <Label Name="ProductLabel" Content="Product:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="87" Height="35"/>
         <Label Name="ProductNameLabel" Content="" FontSize="14" HorizontalAlignment="Left" Margin="97,82,0,0" VerticalAlignment="Top"/>
         <Label Name="MachineRequiredLabel" Content="Machines Required" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
