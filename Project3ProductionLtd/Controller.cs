@@ -132,7 +132,7 @@ namespace Project3ProductionLtd
 
                 while (reader.Read())
                 {
-                    if (Convert.ToInt32(reader["confirm"]).Equals(1))
+                    if (Convert.ToInt32(reader["confirm"]).Equals(0))
                     {
                         isConfirmed = isConfirmed + 1;
                     }
