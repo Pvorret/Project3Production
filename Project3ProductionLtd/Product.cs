@@ -20,7 +20,7 @@ namespace Project3ProductionLtd
         public double durability { get; set; }
         public int Amount { get; set; }
         public decimal Price { get; set; }
-
+        public int InStock { get; set; }
 
         public List<Machine> machineList = new List<Machine>();
 
