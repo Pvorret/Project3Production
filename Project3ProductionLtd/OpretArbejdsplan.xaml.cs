@@ -28,8 +28,7 @@ namespace Project3ProductionLtd
             ProductDropdown.IsEnabled = false;
             ProductLabel.IsEnabled = false;
             ProductNameLabel.IsEnabled = false;
-            MachineAvailableLabel.IsEnabled = false;
-            MachineAvailableListBox.IsEnabled = false;
+            MachineToEditLabel.IsEnabled = false;
             MachineRequiredLabel.IsEnabled = false;
             MachineRequiredListBox.IsEnabled = false;
 
@@ -91,16 +90,9 @@ namespace Project3ProductionLtd
         {
             ProductLabel.IsEnabled = true;
             ProductNameLabel.IsEnabled = true;
-            MachineAvailableLabel.IsEnabled = true;
-            MachineAvailableListBox.IsEnabled = true;
+            MachineToEditLabel.IsEnabled = true;
             MachineRequiredLabel.IsEnabled = true;
             MachineRequiredListBox.IsEnabled = true;
-
-            /*foreach (Order name in Controller.orderList)
-            {
-                ProductDropdown.Items.Remove(name.OrderProductName1);
-                ProductDropdown.Items.Remove(name.OrderProductName2);
-            }*/
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
