@@ -93,19 +93,51 @@ namespace Project3ProductionLtd
             MachineToEditLabel.IsEnabled = true;
             MachineRequiredLabel.IsEnabled = true;
             MachineRequiredListBox.IsEnabled = true;
+            for (int j = 0; j < Controller.orderList.Count; j++)
+			{
+                foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[j].OrderProductName1))
+                {
+                    for (int k = 0; k < MachineName.machineList.Count; k++)
+                    {
+                        MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                    } 
+                }
+                
+                foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[j].OrderProductName2))
+                {
+                    for (int k = 0; k < MachineName.machineList.Count; k++)
+                    {
+                        MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                    }
+                }
+			}
+            
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
                 if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName1))
                 {
                     ProductNameLabel.Content = Controller.orderList[i].OrderProductName1;
+                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
+	                {
+                        for (int k = 0; k < MachineName.machineList.Count; k++)
+                        {
+                            MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
+                        }
+                    }
                 }
                 else if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName2))
                 {
                     ProductNameLabel.Content = Controller.orderList[i].OrderProductName2;
+                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
+                    {
+                        for (int k = 0; k < MachineName.machineList.Count; k++)
+                        {
+                            MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
+                        }
+                    }
                 }
-                
-            }
+             }
             
 
 

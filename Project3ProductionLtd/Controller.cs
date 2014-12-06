@@ -109,16 +109,134 @@ namespace Project3ProductionLtd
             }
             return productList;
         }
-        /*
-        public static List<Product> getRequiredMachineFromProductDB()
+        
+        public static List<Product> getRequiredMachineFromProductDB(string productName)
         {
+            SqlConnection connect = connectToSql();
+            List<Product> productChosenMachineList = new List<Product>();
 
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnProductInformation", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    if (Convert.ToString(reader["Name"]).Equals(productName))
+                    {
+                        Product product = new Product();
+
+                        if (Convert.ToInt32(reader["Standse"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Standse"));
+                        }
+                        if (Convert.ToInt32(reader["Svejse"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Svejse"));
+                        }
+                        if (Convert.ToInt32(reader["Bukke"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Bukke"));
+                        }
+                        if (Convert.ToInt32(reader["Laser"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Laser"));
+                        }
+                        if (Convert.ToInt32(reader["CNC"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("CNC"));
+                        }
+                        if (Convert.ToInt32(reader["Saks"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Saks"));
+                        }
+                        if (Convert.ToInt32(reader["Monterings"]) > 0)
+                        {
+                            product.machineList.Add(getMachinesFromDb("Monterings"));
+                        }
+                        productChosenMachineList.Add(product);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return productChosenMachineList;
         }
-        */
-
-        public static void addMachinesToProductLists()
+        public static Machine getMachinesFromDb(string MachineName)
         {
-
+            SqlConnection connect = connectToSql();
+            Machine machine = new Machine();
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (MachineName == "Standse" && Convert.ToString(reader["Machines"]).Equals("Standsemaskine"))
+                    {
+                        if (Convert.ToInt32(reader["MachineId"]).Equals(8))
+                        {
+                            machine.Name = Convert.ToString(reader["Machines"]);
+                        }
+                    }
+                    if (MachineName == "Svejse" && Convert.ToString(reader["Machines"]).Equals("Svejsestation"))
+                    {
+                        if (Convert.ToInt32(reader["MachineId"]).Equals(6))
+                        {
+                            machine.Name = Convert.ToString(reader["Machines"]);
+                        }
+                    }
+                    if (MachineName == "Bukke" && Convert.ToString(reader["Machines"]).Equals("Bukkemaskine"))
+                    {
+                        machine.Name = Convert.ToString(reader["Machines"]);
+                    }
+                    if (MachineName == "Laser" && Convert.ToString(reader["Machines"]).Equals("Lasercutter"))
+                    {
+                        machine.Name = Convert.ToString(reader["Machines"]);
+                    }
+                    if (MachineName == "CNC" && Convert.ToString(reader["Machines"]).Equals("CNC fræser"))
+                    {
+                        if(Convert.ToInt32(reader["MachineId"]).Equals(4) )
+                        {
+                            machine.Name = Convert.ToString(reader["Machines"]);
+                        }
+                    }
+                    if (MachineName == "Saks" && Convert.ToString(reader["Machines"]).Equals("Maskinsaks"))
+                    {
+                        machine.Name = Convert.ToString(reader["Machines"]);
+                    }
+                    if (MachineName == "Monterings" && Convert.ToString(reader["Machines"]).Equals("Monteringsbænk"))
+                    {
+                        if (Convert.ToInt32(reader["MachineId"]).Equals(11))
+                        {
+                            machine.Name = Convert.ToString(reader["Machines"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return machine;
         }
 
         public static int isOrderConfirmed()

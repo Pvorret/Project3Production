@@ -9,7 +9,7 @@ namespace Project3ProductionLtd {
         public string Name { get; set; }
         public List<Machine> machineList { get; set; }
 
-        public void Produktionsarbejder(string name) {
+        public Produktionsarbejder(string name) {
             Name = name;
         }
     }
