@@ -96,9 +96,7 @@ namespace Project3ProductionLtd
                         };
                         productList.Add(product);
                     }
-                    
                 }
-
             }
             catch (Exception e)
             {
@@ -111,6 +109,13 @@ namespace Project3ProductionLtd
             }
             return productList;
         }
+        /*
+        public static List<Product> getRequiredMachineFromProductDB()
+        {
+
+        }
+        */
+
         public static void addMachinesToProductLists()
         {
 
