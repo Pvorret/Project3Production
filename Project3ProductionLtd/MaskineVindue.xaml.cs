@@ -23,6 +23,7 @@ namespace Project3ProductionLtd
         public MaskineVindue()
         {
             InitializeComponent();
+            MachineNameLabel.Content = OpretArbejdsplan.SelectedMachine; 
         }
 
 

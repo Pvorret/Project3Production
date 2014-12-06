@@ -8,11 +8,11 @@
         <Label Name="ProductLabel" Content="Product:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="87" Height="35"/>
         <Label Name="ProductNameLabel" Content="" FontSize="14" HorizontalAlignment="Left" Margin="75,80,0,0" VerticalAlignment="Top"/>
         <Label Name="MachineRequiredLabel" Content="Machines Required" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
-        <Label Name="MachineToEditLabel" Content="Select the machine you want to edit:" FontSize="10" FontStyle="Italic" HorizontalAlignment="Left" Height="23" Margin="10,135,0,0" VerticalAlignment="Top" Width="190"/>
-        <ListBox Name="MachineRequiredListBox" HorizontalAlignment="Left" Height="90" Margin="10,163,0,0" FontSize="12" VerticalAlignment="Top" Width="193"/>
-        <Button Name="SubmitBtn" Content="Submit" HorizontalAlignment="Left" Margin="13,263,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Name="CancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="100,263,0,0" VerticalAlignment="Top" Width="75" Click="CancelBtn_Click"/>
-        
+        <Label Name="MachineToEditLabel" Content="Select the machine you want to edit:" FontSize="10" FontStyle="Italic" HorizontalAlignment="Left" Height="23" Margin="10,135,0,0" VerticalAlignment="Top" Width="165"/>
+        <ListBox Name="MachineRequiredListBox" HorizontalAlignment="Left" Height="90" Margin="10,163,0,0" FontSize="12" VerticalAlignment="Top" Width="223" SelectionChanged="MachineRequiredListBox_SelectionChanged"/>
+        <Button Name="SubmitBtn" Content="Submit" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="CancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="158,263,0,0" VerticalAlignment="Top" Width="75" Click="CancelBtn_Click"/>
+
 
     </Grid>
 </Window>

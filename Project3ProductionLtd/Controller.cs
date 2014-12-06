@@ -109,6 +109,7 @@ namespace Project3ProductionLtd
             }
             return productList;
         }
+
         
         public static List<Product> getRequiredMachineFromProductDB(string productName)
         {
