@@ -1,16 +1,18 @@
 ﻿<Window x:Class="Project3ProductionLtd.BekræftOrdreWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BekræftOrdreWindow" Height="290.753" Width="300">
-    <Grid>
-        <Button Name="ConfirmOrder" Content="Confirm" HorizontalAlignment="Left" Margin="199,223,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmOrder_Click"/>
-        <TextBox Name="OrderMachines" HorizontalAlignment="Left" Height="144" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" Width="264" Margin="10,50,0,0"/>
-        <Label Content="Customer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,7,0,0"/>
-        <TextBlock Name="CustomerName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="68,12,0,0"/>
-        <Label Content="Deadline:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,24,0,0"/>
-        <TextBlock Name="OrderDeadline" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="63,29,0,0"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="103,223,0,0"/>
-        <CheckBox Name="NewDeadline" Content="Estimate new deadline" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Checked="NewDeadline_Checked" Unchecked="NewDeadline_Unchecked"/>
+        Title="BekræftOrdreWindow" Height="328.066" Width="300">
+    <Grid Height="318" VerticalAlignment="Top" Margin="0,0,0,-20">
+        <Button Name="ConfirmOrder" Content="Confirm" HorizontalAlignment="Left" Margin="199,268,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmOrder_Click"/>
+        <Label Content="Customer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,52,0,0"/>
+        <Label Name="Deadline" Content="Deadline:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,69,0,0"/>
+        <Button Name="Cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="103,268,0,0" Click="Button_Click"/>
+        <CheckBox Name="NewDeadline" Content="Estimate new deadline" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Checked="NewDeadline_Checked" Unchecked="NewDeadline_Unchecked"/>
+        <ComboBox Name="OrderSelected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="11,25,0,0" SelectionChanged="OrderSelected_SelectionChanged" DropDownOpened="OrderSelected_DropDownOpened"/>
+        <Label Name="OrderConfirmation" Content="Select order" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,-1,0,0" Width="75"/>
+        <Label Name="CustomerName" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="63,52,0,0"/>
+        <Label Name="OrderDeadline" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,69,0,0"/>
+        <ProgressBar Name="Pro1M1" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="187" Margin="11,114,0,0" ValueChanged="Pro1M1_ValueChanged"/>
 
     </Grid>
 </Window>

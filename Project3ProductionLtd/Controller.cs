@@ -13,6 +13,7 @@ namespace Project3ProductionLtd
     {
         public static List<Order> orderList;
         public static List<Product> productList;
+        public static List<Machine> machineList;
         /*
         public bool setOrderAsConfirmed()
         {
@@ -173,6 +174,41 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
+        public static List<Machine> getMachineTimes()
+        {
+            SqlConnection connect = connectToSql();
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+                machineList = new List<Machine>();
+                while (reader.Read())
+                {
+                    Machine machineTimes = new Machine()
+                    {
+                        Name = Convert.ToString(reader["Machines"]),
+                        StartDate = Convert.ToDateTime(reader["StartDate"]),
+                        EndDate = Convert.ToDateTime(reader["EndDate"]),
+                        Deadline = Convert.ToDateTime(reader["Deadline"])
+                    };
+                    machineList.Add(machineTimes);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return machineList;
+        }
         public static Machine getMachinesFromDb(string MachineName)
         {
             SqlConnection connect = connectToSql();
@@ -318,7 +354,9 @@ namespace Project3ProductionLtd
                             OrderProductName1 = order.product1List[i].Name,
                             OrderProductAmount1 = order.product1List[i].Amount,
                             Price = Convert.ToDecimal(reader["Price"]),
-                            OrderName = Convert.ToString(reader["OrderName"])
+                            OrderName = Convert.ToString(reader["OrderName"]),
+                            Confirm = Convert.ToInt32(reader["Confirm"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"])
                         };
                         orderList.Add(newOrder);
                     }
@@ -337,7 +375,9 @@ namespace Project3ProductionLtd
                             OrderProductAmount2 = order.product2List[k].Amount,
 
                             Price = Convert.ToDecimal(reader["Price"]),
-                            OrderName = Convert.ToString(reader["OrderName"])
+                            OrderName = Convert.ToString(reader["OrderName"]),
+                            Confirm = Convert.ToInt32(reader["Confirm"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"])
                         };
                         orderList.Add(anotherOrder);
                     }
