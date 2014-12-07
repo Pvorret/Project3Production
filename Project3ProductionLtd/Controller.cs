@@ -192,6 +192,10 @@ namespace Project3ProductionLtd
                         {
                             machine.Name = Convert.ToString(reader["Machines"]);
                         }
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "Svejse" && Convert.ToString(reader["Machines"]).Equals("Svejsestation"))
                     {
@@ -199,14 +203,26 @@ namespace Project3ProductionLtd
                         {
                             machine.Name = Convert.ToString(reader["Machines"]);
                         }
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "Bukke" && Convert.ToString(reader["Machines"]).Equals("Bukkemaskine"))
                     {
                         machine.Name = Convert.ToString(reader["Machines"]);
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "Laser" && Convert.ToString(reader["Machines"]).Equals("Lasercutter"))
                     {
                         machine.Name = Convert.ToString(reader["Machines"]);
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "CNC" && Convert.ToString(reader["Machines"]).Equals("CNC fræser"))
                     {
@@ -214,16 +230,28 @@ namespace Project3ProductionLtd
                         {
                             machine.Name = Convert.ToString(reader["Machines"]);
                         }
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "Saks" && Convert.ToString(reader["Machines"]).Equals("Maskinsaks"))
                     {
                         machine.Name = Convert.ToString(reader["Machines"]);
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
+                        }
                     }
                     if (MachineName == "Monterings" && Convert.ToString(reader["Machines"]).Equals("Monteringsbænk"))
                     {
                         if (Convert.ToInt32(reader["MachineId"]).Equals(11))
                         {
                             machine.Name = Convert.ToString(reader["Machines"]);
+                        }
+                        if (Convert.ToDateTime(reader["StartDate"]).Date.Equals(1000 - 01 - 01) && Convert.ToDateTime(reader["EndDate"]).Date.Equals(1000 - 01 - 01))
+                        {
+                            machine.IsAvailableNow = true;
                         }
                     }
                 }

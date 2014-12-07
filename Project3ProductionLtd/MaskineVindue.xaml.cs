@@ -19,12 +19,28 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MaskineVindue : Window
     {
-        OpretArbejdsplan opretArbejdsplanMenu = new OpretArbejdsplan();
+        OpretArbejdsplan opretArbejdsplanMenu;
         public MaskineVindue()
         {
             InitializeComponent();
-            MachineNameLabel.Content = OpretArbejdsplan.SelectedMachine; 
+            opretArbejdsplanMenu = new OpretArbejdsplan();
+            //MachineNameLabel.Content = opretArbejdsplanMenu.SelectedMachine;
+            
+            for (int i = 0; i < opretArbejdsplanMenu.ProductDropdown.Items.Count; i++)
+			{
+                foreach (Machine machine in opretArbejdsplanMenu.MachineRequiredListBox.Items)
+                {
+                    if (MachineNameLabel.Content.Equals(machine.Name))
+                    {
+                        if (machine.IsAvailableNow == true)
+                        {
+                            MachineAvailableFromBox.Text = "Now";
+                        }
+                    }
+                }
+            }
         }
+            
 
 
         private void ReturnBtn_Click(object sender, RoutedEventArgs e)

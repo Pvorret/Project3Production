@@ -22,7 +22,7 @@ namespace Project3ProductionLtd
     {
         MainMenuProduktionsplanlægger menuPlanlægger;
         MaskineVindue maskineVindue;
-        public static string SelectedMachine { get; set; }
+        public string SelectedMachine { get; set; }
 
         public OpretArbejdsplan()
         {
@@ -163,10 +163,11 @@ namespace Project3ProductionLtd
 
        private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
        {
+           maskineVindue = new MaskineVindue();
            try
            {
-               SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
-               maskineVindue = new MaskineVindue();
+               maskineVindue.Content = MachineRequiredListBox.SelectedItem.ToString();
+               
                maskineVindue.Show();
            }
            catch (Exception)
