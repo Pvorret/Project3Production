@@ -29,7 +29,6 @@ namespace Project3ProductionLtd
 
         private void ReturnBtn_Click(object sender, RoutedEventArgs e)
         {
-            opretArbejdsplanMenu.Show();
             Close();
         }
     }

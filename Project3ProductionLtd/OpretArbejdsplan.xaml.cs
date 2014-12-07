@@ -49,21 +49,18 @@ namespace Project3ProductionLtd
         {
              
         }
+
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            
-
+            foreach (Order name in Controller.orderList)
+            {
+                ProductDropdown.Items.Remove(name.OrderProductName1);
+                ProductDropdown.Items.Remove(name.OrderProductName2);
+            }
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
                 if (OrderDropdown.SelectedItem.Equals(Controller.orderList[i].OrderName))
                 {
-                    foreach (Order name in Controller.orderList)
-                    {
-                        ProductDropdown.Items.Remove(name.OrderProductName1);
-                        ProductDropdown.Items.Remove(name.OrderProductName2);
-                    }
-
                     if (Controller.orderList[i].OrderProductName1 != "")
                     {
                         ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
@@ -120,43 +117,80 @@ namespace Project3ProductionLtd
                     }
                 }
 			}
-            
 
-            for (int i = 0; i < Controller.orderList.Count; i++)
+
+            try
             {
-                if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName1))
+                for (int i = 0; i < Controller.orderList.Count; i++)
                 {
-                    ProductNameLabel.Content = Controller.orderList[i].OrderProductName1;
-                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
-	                {
-                        for (int k = 0; k < MachineName.machineList.Count; k++)
-                        {
-                            MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
-                        }
-                    }
-                    
-                }
-                else if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName2))
-                {
-                    ProductNameLabel.Content = Controller.orderList[i].OrderProductName2;
-                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
+                    if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName1))
                     {
-                        for (int k = 0; k < MachineName.machineList.Count; k++)
+                        ProductNameLabel.Content = Controller.orderList[i].OrderProductName1;
+                        foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
                         {
-                            MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
+                            for (int k = 0; k < MachineName.machineList.Count; k++)
+                            {
+                                MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
+                            }
                         }
                     }
-                 }
-             }
+                    else if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName2))
+                    {
+                        ProductNameLabel.Content = Controller.orderList[i].OrderProductName2;
+                        foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
+                        {
+                            for (int k = 0; k < MachineName.machineList.Count; k++)
+                            {
+                                MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                foreach (Order name in Controller.orderList)
+                {
+                    ProductDropdown.Items.Remove(name.OrderProductName1);
+                    ProductDropdown.Items.Remove(name.OrderProductName2);
+                }
+                ProductNameLabel.Content = "";
+            }
+
         }
 
        
 
        private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
        {
-           SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
-           maskineVindue = new MaskineVindue();
-           maskineVindue.Show();
+           try
+           {
+               SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
+               maskineVindue = new MaskineVindue();
+               maskineVindue.Show();
+           }
+           catch (Exception)
+           {
+               maskineVindue.Close();
+               for (int i = 0; i < Controller.orderList.Count; i++)
+               {
+                   foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
+                   {
+                       for (int k = 0; k < MachineName.machineList.Count; k++)
+                       {
+                           MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                       }
+                   }
+                   foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
+                   {
+                       for (int k = 0; k < MachineName.machineList.Count; k++)
+                       {
+                           MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                       }
+                   }
+               }
+               
+           }
        }
 }
 }
