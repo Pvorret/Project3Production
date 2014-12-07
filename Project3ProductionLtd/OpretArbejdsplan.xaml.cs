@@ -43,23 +43,27 @@ namespace Project3ProductionLtd
             menuPlanlægger.Show();
             Close();
         }
+        
 
         private void OrderDropdown_Loaded(object sender, RoutedEventArgs e)
         {
-            
+             
         }
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (Order name in Controller.orderList)
-            {
-                ProductDropdown.Items.Remove(name.OrderProductName1);
-                ProductDropdown.Items.Remove(name.OrderProductName2);
-            }
+            
+            
 
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
                 if (OrderDropdown.SelectedItem.Equals(Controller.orderList[i].OrderName))
                 {
+                    foreach (Order name in Controller.orderList)
+                    {
+                        ProductDropdown.Items.Remove(name.OrderProductName1);
+                        ProductDropdown.Items.Remove(name.OrderProductName2);
+                    }
+
                     if (Controller.orderList[i].OrderProductName1 != "")
                     {
                         ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
@@ -82,12 +86,14 @@ namespace Project3ProductionLtd
         {
             if (OrderDropdown.Items.Count == 0)
             {
-            foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
-            {
+                foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
+                {
                 OrderDropdown.Items.Add(orderName.OrderName);
+                }
             }
+            
+            
         }
-    }
 
         private void ProductDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -128,6 +134,7 @@ namespace Project3ProductionLtd
                             MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
                         }
                     }
+                    
                 }
                 else if (ProductDropdown.SelectedItem.Equals(Controller.orderList[i].OrderProductName2))
                 {
@@ -139,11 +146,14 @@ namespace Project3ProductionLtd
                             MachineRequiredListBox.Items.Add(MachineName.machineList[k].Name);
                         }
                     }
-                }
+                 }
              }
+        }
+
+        private void MachineRequiredListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
             
-
-
         }
 
         private void MachineRequiredListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
