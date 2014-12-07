@@ -178,7 +178,7 @@ namespace Project3ProductionLtd
         {
             SqlConnection connect = connectToSql();
             try
-            {
+            { 
                 connect.Open();
                 SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
