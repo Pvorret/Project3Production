@@ -21,6 +21,9 @@ namespace Project3ProductionLtd
     public partial class OpretArbejdsplan : Window
     {
         MainMenuProduktionsplanlægger menuPlanlægger;
+        MaskineVindue maskineVindue;
+        public static string SelectedMachine { get; set; }
+
         public OpretArbejdsplan()
         {
             InitializeComponent();
@@ -151,6 +154,18 @@ namespace Project3ProductionLtd
         {
 
             
+        }
+
+        private void MachineRequiredListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
+            maskineVindue = new MaskineVindue();
+            maskineVindue.Show();
+            /*for (int i = 0; i < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString()).Count; i++)
+            {
+                if()
+            }
+            */
         }
 }
 }
