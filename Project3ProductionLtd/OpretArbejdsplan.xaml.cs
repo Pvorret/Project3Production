@@ -150,22 +150,13 @@ namespace Project3ProductionLtd
              }
         }
 
-        private void MachineRequiredListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+       
 
-            
-        }
-
-        private void MachineRequiredListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
-            maskineVindue = new MaskineVindue();
-            maskineVindue.Show();
-            /*for (int i = 0; i < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString()).Count; i++)
-            {
-                if()
-            }
-            */
-        }
+       private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+       {
+           SelectedMachine = MachineRequiredListBox.SelectedItem.ToString();
+           maskineVindue = new MaskineVindue();
+           maskineVindue.Show();
+       }
 }
 }

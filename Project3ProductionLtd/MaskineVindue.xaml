@@ -10,7 +10,7 @@
         <Label Name="StartTimeLabel" Content="Start Time" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="22,77,0,0" VerticalAlignment="Top"/>
         <Label Name="EndTimeLabel" Content="End Time" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="127,77,0,0" VerticalAlignment="Top"/>
         <TextBox Name="StartTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="22,108,0,0" TextWrapping="Wrap" Text="dd/mm/yy" VerticalAlignment="Top" Width="80"/>
-        <TextBox Name="EndTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="127,108,0,0" TextWrapping="Wrap" Text="dd/mm/yy" VerticalAlignment="Top" Width="80"/>
+        <TextBox Name="EndTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="127,108,0,0" TextWrapping="Wrap" Text="" IsReadOnly="True" VerticalAlignment="Top" Width="80"/>
         <Label Content="Worker Assigned:" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top"/>
         <Label Content="Anders" FontStyle="Italic" FontSize="12" HorizontalAlignment="Left" Margin="120,141,0,0" VerticalAlignment="Top" Width="80"/>
         <Button Name="ApproveBtn" Content="Approve" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="75"/>
