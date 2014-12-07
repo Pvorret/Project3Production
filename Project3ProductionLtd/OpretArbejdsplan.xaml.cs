@@ -117,8 +117,6 @@ namespace Project3ProductionLtd
                     }
                 }
 			}
-
-
             try
             {
                 for (int i = 0; i < Controller.orderList.Count; i++)
@@ -166,8 +164,56 @@ namespace Project3ProductionLtd
            maskineVindue = new MaskineVindue();
            try
            {
-               maskineVindue.Content = MachineRequiredListBox.SelectedItem.ToString();
-               
+               maskineVindue.MachineNameLabel.Content = MachineRequiredListBox.SelectedItem.ToString();
+               for (int i = 0; i < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString()).Count; i++)
+               {
+                   for (int k = 0; k < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList.Count; k++)
+			       {
+                       if (MachineRequiredListBox.SelectedItem.ToString().Equals(Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].Name))
+                       {
+                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(true))
+                           {
+                               maskineVindue.MachineAvailableFromBox.Text = "Now";
+                           }
+                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(false))
+                           {
+                               maskineVindue.MachineAvailableFromBox.Text = Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate.ToShortDateString();
+                           }
+                       }
+			       }
+                   
+               }
+
+               /*for (int i = 0; i < Controller.orderList.Count; i++)
+               {
+                   for (int j = 0; j < Controller.orderList[i].product1List.Count; j++)
+                   {
+                       foreach (Machine machine in Controller.orderList[i].product1List[j].machineList)
+                       {
+                           if (MachineRequiredListBox.SelectedItem.ToString().Equals(machine.Name))
+                           {
+                               if (machine.IsAvailableNow == true)
+                               {
+                                   maskineVindue.MachineAvailableFromBox.Text = "Now";
+                               }
+                           }
+                       }
+                   }
+                   for (int k = 0; k < Controller.orderList[i].product2List.Count; k++)
+                   {
+                       foreach (Machine machine in Controller.orderList[i].product2List[i].machineList)
+                       {
+                           if (MachineRequiredListBox.SelectedItem.ToString().Equals(machine.Name))
+                           {
+                               if (machine.IsAvailableNow == true)
+                               {
+                                   maskineVindue.MachineAvailableFromBox.Text = "Now";
+                               }
+                           }
+                       }
+                   }
+               }
+                */
                maskineVindue.Show();
            }
            catch (Exception)
