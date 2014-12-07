@@ -15,6 +15,7 @@ namespace Project3ProductionLtd
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime Deadline { get; set; }
+        public bool IsAvailableNow { get; set; }
 
         public string AssignWorker(string machine)
         {
