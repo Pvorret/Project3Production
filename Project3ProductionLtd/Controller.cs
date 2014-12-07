@@ -108,8 +108,7 @@ namespace Project3ProductionLtd
                 connect.Dispose();
             }
             return productList;
-        }
-        
+        }  
         public static List<Product> getRequiredMachineFromProductDB(string productName)
         {
             SqlConnection connect = connectToSql();
@@ -238,7 +237,6 @@ namespace Project3ProductionLtd
             }
             return machine;
         }
-
         public static int isOrderConfirmed()
         {
             SqlConnection connect = connectToSql();
