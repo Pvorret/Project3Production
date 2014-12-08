@@ -33,7 +33,7 @@ namespace Project3ProductionLtd
         private void Login_Click(object sender, RoutedEventArgs e)
         {
 
-            int id = Controller.logIn(Username.Text, Password.Text);
+            int id = Controller.logIn(Username.Text, Password.Password);
 
             if (id > 0 && id < 3) {
                 menuSælger = new MainMenuSælger();
