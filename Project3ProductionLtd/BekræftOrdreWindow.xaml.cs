@@ -71,11 +71,11 @@ namespace Project3ProductionLtd
                     //Pro1M1.Maximum = Convert.ToDouble(Controller.orderList[i].Deadline.ToOADate());
                     for (int j = 0; j < Controller.orderList[i].product1List.Count; j++)
                     {
-                        foreach (Product Machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product1List[j].Name))
+                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product1List[j].Name))
                         {
-                            for (int k = 0; k < Controller.getMachineTimes().Count; k++)
+                            for (int k = 0; k < machine.machineList.Count; k++)
                             {
-                                if (Controller.getMachineTimes()[k].Name.Substring(0, 3) == Machine.Name.Substring(0, 3))
+                                if (Controller.getMachineTimes()[k].Name.Substring(0, 3) == machine.machineList[k].Name.Substring(0, 3))
                                     if (Controller.getMachineTimes()[k].StartDate < Controller.orderList[i].Deadline)
                                     {
                                 Pro1M1.Minimum = 0;

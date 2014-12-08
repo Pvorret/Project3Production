@@ -13,18 +13,6 @@ namespace Project3ProductionLtd
     {
         public static List<Order> orderList;
         public static List<Product> productList;
-        public static List<Machine> fullMachineList;
-        /*
-        public bool setOrderAsConfirmed()
-        {
-            order = new Order();
-            bool orderConfirmed;
-        }
-        */
-        /*
-        public Order printOrderList()
-        { }
-         */
         public static SqlConnection connectToSql()
         {
             SqlConnection connect = new SqlConnection(
@@ -173,10 +161,10 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
-        /*public static List<Machine> getMachineTimes()
+        public static List<Machine> getMachineTimes()
         {
             SqlConnection connect = connectToSql();
-            fullMachineList = new List<Machine>();
+            List<Machine> fullMachineList = new List<Machine>();
             try
             {
                 connect.Open();
@@ -209,7 +197,7 @@ namespace Project3ProductionLtd
             }
             return fullMachineList;
         }
-         */
+
         public static Machine getMachinesFromDb(string MachineName)
         {
             SqlConnection connect = connectToSql();
