@@ -69,6 +69,7 @@ namespace Project3ProductionLtd
                     //    Pro1M1.Maximum = 100;
                     //}
                     //Pro1M1.Maximum = Convert.ToDouble(Controller.orderList[i].Deadline.ToOADate());
+                    MessageBox.Show(Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count.ToString());
                     for (int j = 0; j < Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count; j++)
                     {
                         foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product1List[j].Name))
@@ -95,6 +96,35 @@ namespace Project3ProductionLtd
                                 Pro1M1.Value = workTime.TotalDays;
                                 //Pro1M1.Minimum = Convert.ToDouble(MachineEndTime.machineList[k].StartDate.ToOADate());
                                 //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
+                            }
+                        }
+                        for (int t = 0; t < Controller.getOrdersFromDatabaseToOrderList()[i].product2List.Count; t++)
+                        {
+                            foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product2List[t].Name))
+                            {
+                                for (int k = 0; k < machine.machineList.Count; k++)
+                                {
+                                    if (Controller.getMachineTimes()[k].Name.Substring(0, 3) == machine.machineList[k].Name.Substring(0, 3))
+                                    {
+                                        if (Controller.getMachineTimes()[k].StartDate < Controller.orderList[i].Deadline)
+                                        {
+                                            Pro1M1.Minimum = 0;
+                                        }
+                                    }
+                                    if (Controller.getMachineTimes()[k].StartDate > Controller.orderList[i].Deadline)
+                                    {
+                                        TimeSpan span = Controller.orderList[i].Deadline - Controller.getMachineTimes()[k].StartDate;
+                                        Pro1M1.Maximum = span.TotalDays;
+                                    }
+                                    TimeSpan workTime = Controller.getMachineTimes()[k].StartDate - Controller.getMachineTimes()[k].EndDate;
+                                    if (Controller.getMachineTimes()[k - 1].EndDate <= Controller.getMachineTimes()[k].EndDate)
+                                    {
+                                        workTime = Controller.getMachineTimes()[k].EndDate - Controller.getMachineTimes()[k - 1].EndDate;
+                                    }
+                                    Pro1M1.Value = workTime.TotalDays;
+                                    //Pro1M1.Minimum = Convert.ToDouble(MachineEndTime.machineList[k].StartDate.ToOADate());
+                                    //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
+                                }
                             }
                         }
                     }
