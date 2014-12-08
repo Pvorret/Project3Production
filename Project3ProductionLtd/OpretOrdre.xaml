@@ -6,7 +6,8 @@
         <CheckBox Name="Hastordre" Content="Hast Ordre" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="109"/>
         <CheckBox Name="Standardordre" Content="Standard Ordre" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="109"/>
         <CheckBox Name="SpecielOrdre" Content="Speciel Ordre" HorizontalAlignment="Left" Margin="161,93,0,0" VerticalAlignment="Top" Width="109"/>
-        <ComboBox Name="Type" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="TypeDropdown" HorizontalAlignment="Left" Margin="161,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="CustomerDropdown" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Height" HorizontalAlignment="Left" Height="23" Margin="10,160,0,0" TextWrapping="Wrap" Text="Height" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Width" HorizontalAlignment="Left" Height="23" Margin="10,199,0,0" TextWrapping="Wrap" Text="Width" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Spacing" HorizontalAlignment="Left" Height="23" Margin="10,239,0,0" TextWrapping="Wrap" Text="Spacing" VerticalAlignment="Top" Width="120"/>

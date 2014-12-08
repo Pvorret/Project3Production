@@ -22,7 +22,7 @@ namespace Project3ProductionLtd
     {
         MainMenuProduktionsplanlægger menuPlanlægger;
         MaskineVindue maskineVindue;
-        public string SelectedMachine { get; set; }
+        //public string SelectedMachine { get; set; }
 
         public OpretArbejdsplan()
         {
