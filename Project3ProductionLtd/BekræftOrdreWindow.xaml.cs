@@ -59,7 +59,6 @@ namespace Project3ProductionLtd
                 {
                     CustomerName.Content = Controller.orderList[i].CustomerName;
                     OrderDeadline.Content = Convert.ToDateTime(Controller.orderList[i].Deadline);
-
                     //if(DateTime.Now < Controller.orderList[i].Deadline)
                     //{
                     //    Pro1M1.Minimum = 0;
@@ -78,23 +77,21 @@ namespace Project3ProductionLtd
                                 if (Controller.getMachineTimes()[k].Name.Substring(0, 3) == machine.machineList[k].Name.Substring(0, 3))
                                     if (Controller.getMachineTimes()[k].StartDate < Controller.orderList[i].Deadline)
                                     {
-                                Pro1M1.Minimum = 0;
-                            }
+                                        Pro1M1.Minimum = 0;
+                                    }
                                 if (Controller.getMachineTimes()[k].StartDate > Controller.orderList[i].Deadline)
-                            {
+                                {
                                     TimeSpan span = Controller.orderList[i].Deadline - Controller.getMachineTimes()[k].StartDate;
-                                Pro1M1.Maximum = span.TotalDays;
-                            }
+                                    Pro1M1.Maximum = span.TotalDays;
+                                }
                                 TimeSpan workTime = Controller.getMachineTimes()[k].StartDate - Controller.getMachineTimes()[k].EndDate;
                                 if (Controller.getMachineTimes()[k - 1].EndDate <= Controller.getMachineTimes()[k].EndDate)
-                            {
+                                {
                                     workTime = Controller.getMachineTimes()[k].EndDate - Controller.getMachineTimes()[k - 1].EndDate;
+                                }
+                                Pro1M1.Value = workTime.TotalDays;
                             }
-                            Pro1M1.Value = workTime.TotalDays;
-                            //Pro1M1.Minimum = Convert.ToDouble(MachineEndTime.machineList[k].StartDate.ToOADate());
-                            //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
                         }
-                    }
                     }
                 }
             }
@@ -123,6 +120,5 @@ namespace Project3ProductionLtd
         private void Pro1M1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
         }
-
     }
 }
