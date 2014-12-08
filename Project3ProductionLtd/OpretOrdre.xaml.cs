@@ -26,5 +26,20 @@ namespace Project3ProductionLtd {
             menuSælger = new MainMenuSælger();
             menuSælger.Show();
         }
+
+        private void ProductTypeDropdown_DropDownOpened(object sender, EventArgs e) {
+            for (int i = 0; i < Controller.productList.Count; i++) {
+                ProductTypeDropdown.Items.Add(Controller.productList[i].Name);
+
+            }
+        }
+
+        private void TypeDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
+       
+
+
     }
 }

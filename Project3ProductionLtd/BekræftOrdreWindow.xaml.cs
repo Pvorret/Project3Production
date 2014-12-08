@@ -50,7 +50,7 @@ namespace Project3ProductionLtd
         private void ConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
         }
-        private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Controller.getMachineTimes();
             for (int i = 0; i < Controller.orderList.Count; i++)
@@ -98,6 +98,7 @@ namespace Project3ProductionLtd
                 }
             }
         }
+        */
         private void OrderSelected_DropDownOpened (object sender, EventArgs e)
         {
             if (OrderSelected.Items.Count == 0)
