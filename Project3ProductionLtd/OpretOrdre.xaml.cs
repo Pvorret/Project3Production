@@ -17,8 +17,14 @@ namespace Project3ProductionLtd {
     /// Interaction logic for OpretOrdre.xaml
     /// </summary>
     public partial class OpretOrdre : Window {
+        MainMenuSælger menuSælger;
         public OpretOrdre() {
             InitializeComponent();
+        }
+
+        private void CancelBt_Click(object sender, RoutedEventArgs e) {
+            menuSælger = new MainMenuSælger();
+            menuSælger.Show();
         }
     }
 }

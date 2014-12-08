@@ -20,6 +20,7 @@ namespace Project3ProductionLtd
     public partial class MainMenuSælger : Window
     {
         MainWindow mainWin;
+        OpretOrdre opretordre;
         public MainMenuSælger()
         {
             InitializeComponent();
@@ -31,6 +32,12 @@ namespace Project3ProductionLtd
             mainWin.Show();
             Close();
 
+        }
+
+        private void makeorder_Click(object sender, RoutedEventArgs e) {
+            opretordre = new OpretOrdre();
+            opretordre.Show();
+            Close();
         }
     }
 }

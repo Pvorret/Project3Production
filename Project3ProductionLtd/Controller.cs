@@ -172,7 +172,7 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
-        public static List<Machine> getMachineTimes()
+        /*public static List<Machine> getMachineTimes()
         {
             SqlConnection connect = connectToSql();
             try
@@ -207,6 +207,7 @@ namespace Project3ProductionLtd
             }
             return machineList;
         }
+         */
         public static Machine getMachinesFromDb(string MachineName)
         {
             SqlConnection connect = connectToSql();
