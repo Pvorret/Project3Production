@@ -53,12 +53,13 @@ namespace Project3ProductionLtd
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Controller.getMachineTimes();
-            for (int i = 0; i < Controller.orderList.Count; i++)
+            for (int i = 0; i < Controller.getOrdersFromDatabaseToOrderList().Count; i++)
             {
-                if (OrderSelected.SelectedItem.Equals(Controller.orderList[i].OrderName))
+                if (OrderSelected.SelectedItem.Equals(Controller.getOrdersFromDatabaseToOrderList()[i].OrderName))
                 {
-                    CustomerName.Content = Controller.orderList[i].CustomerName;
-                    OrderDeadline.Content = Convert.ToDateTime(Controller.orderList[i].Deadline);
+                    CustomerName.Content = Controller.getOrdersFromDatabaseToOrderList()[i].CustomerName;
+                    OrderDeadline.Content = Convert.ToString(Controller.getOrdersFromDatabaseToOrderList()[i].Deadline);
+
                     //if(DateTime.Now < Controller.orderList[i].Deadline)
                     //{
                     //    Pro1M1.Minimum = 0;
@@ -68,17 +69,20 @@ namespace Project3ProductionLtd
                     //    Pro1M1.Maximum = 100;
                     //}
                     //Pro1M1.Maximum = Convert.ToDouble(Controller.orderList[i].Deadline.ToOADate());
-                    for (int j = 0; j < Controller.orderList[i].product1List.Count; j++)
+                    MessageBox.Show(Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count.ToString());
+                    for (int j = 0; j < Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count; j++)
                     {
-                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product1List[j].Name))
+                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product1List[j].Name))
                         {
                             for (int k = 0; k < machine.machineList.Count; k++)
                             {
                                 if (Controller.getMachineTimes()[k].Name.Substring(0, 3) == machine.machineList[k].Name.Substring(0, 3))
+                                {
                                     if (Controller.getMachineTimes()[k].StartDate < Controller.orderList[i].Deadline)
                                     {
                                         Pro1M1.Minimum = 0;
                                     }
+                                }
                                 if (Controller.getMachineTimes()[k].StartDate > Controller.orderList[i].Deadline)
                                 {
                                     TimeSpan span = Controller.orderList[i].Deadline - Controller.getMachineTimes()[k].StartDate;
@@ -90,6 +94,8 @@ namespace Project3ProductionLtd
                                     workTime = Controller.getMachineTimes()[k].EndDate - Controller.getMachineTimes()[k - 1].EndDate;
                                 }
                                 Pro1M1.Value = workTime.TotalDays;
+                                //Pro1M1.Minimum = Convert.ToDouble(MachineEndTime.machineList[k].StartDate.ToOADate());
+                                //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
                             }
                         }
                     }
@@ -120,5 +126,6 @@ namespace Project3ProductionLtd
         private void Pro1M1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
         }
+
     }
 }
