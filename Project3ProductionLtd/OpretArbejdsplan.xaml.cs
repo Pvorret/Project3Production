@@ -44,12 +44,6 @@ namespace Project3ProductionLtd
             Close();
         }
         
-
-        private void OrderDropdown_Loaded(object sender, RoutedEventArgs e)
-        {
-             
-        }
-
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             foreach (Order name in Controller.orderList)
@@ -154,9 +148,7 @@ namespace Project3ProductionLtd
                 }
                 ProductNameLabel.Content = "";
             }
-
         }
-
        
 
        private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -184,36 +176,6 @@ namespace Project3ProductionLtd
                    
                }
 
-               /*for (int i = 0; i < Controller.orderList.Count; i++)
-               {
-                   for (int j = 0; j < Controller.orderList[i].product1List.Count; j++)
-                   {
-                       foreach (Machine machine in Controller.orderList[i].product1List[j].machineList)
-                       {
-                           if (MachineRequiredListBox.SelectedItem.ToString().Equals(machine.Name))
-                           {
-                               if (machine.IsAvailableNow == true)
-                               {
-                                   maskineVindue.MachineAvailableFromBox.Text = "Now";
-                               }
-                           }
-                       }
-                   }
-                   for (int k = 0; k < Controller.orderList[i].product2List.Count; k++)
-                   {
-                       foreach (Machine machine in Controller.orderList[i].product2List[i].machineList)
-                       {
-                           if (MachineRequiredListBox.SelectedItem.ToString().Equals(machine.Name))
-                           {
-                               if (machine.IsAvailableNow == true)
-                               {
-                                   maskineVindue.MachineAvailableFromBox.Text = "Now";
-                               }
-                           }
-                       }
-                   }
-               }
-                */
                maskineVindue.Show();
            }
            catch (Exception)
@@ -230,6 +192,7 @@ namespace Project3ProductionLtd
                    }
                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
                    {
+               
                        for (int k = 0; k < MachineName.machineList.Count; k++)
                        {
                            MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);

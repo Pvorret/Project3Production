@@ -44,13 +44,7 @@ namespace Project3ProductionLtd
                 EndDateTextBoxYYYY.Text = StartDateTextBoxYYYY.Text;
            }
         }
-
-        private void StartDateTextBoxDD_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-            
-
-        }
+        private void StartDateTextBoxDD_TextChanged(object sender, TextChangedEventArgs e){ }
 
         private void StartDateTextBoxDD_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
