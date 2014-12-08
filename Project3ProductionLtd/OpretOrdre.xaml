@@ -18,7 +18,7 @@
         <Label Content="Opret Ordre" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0" FontSize="14" FontWeight="Bold"/>
         <Label Name="Sælger" Content="Sælger" HorizontalAlignment="Left" Margin="161,39,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
         <Label Name="Username" Content="username" HorizontalAlignment="Left" Margin="81,41,0,0" VerticalAlignment="Top"/>
-        <Button Name="SubmitBt" Content="Submit" HorizontalAlignment="Left" Margin="55,391,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="SubmitBt" Content="Submit" HorizontalAlignment="Left" Margin="55,391,0,0" VerticalAlignment="Top" Width="75" Click="SubmitBt_Click"/>
         <Button Name="CancelBt" Content="Cancel" HorizontalAlignment="Left" Margin="161,391,0,0" VerticalAlignment="Top" Width="75" Click="CancelBt_Click"/>
         <Button Name="AddProduct" Content="Add Product" HorizontalAlignment="Left" Margin="161,355,0,0" VerticalAlignment="Top" Width="75" Click="AddProduct_Click"/>
 
