@@ -4,6 +4,7 @@
         Title="OpretOrdre" Height="300" Width="300">
     <Grid>
         <CheckBox Name="Standardordre" Content="Standard Ordre" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="109"/>
+        <CheckBox Name="SpecielOrdre" Content="Speciel Ordre" HorizontalAlignment="Left" Margin="161,24,0,0" VerticalAlignment="Top" Width="109"/>
         <ComboBox Name="Type" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Height" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" Text="Height" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Width" HorizontalAlignment="Left" Height="23" Margin="10,130,0,0" TextWrapping="Wrap" Text="Width" VerticalAlignment="Top" Width="120"/>
