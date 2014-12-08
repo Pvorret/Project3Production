@@ -27,6 +27,8 @@ namespace Project3ProductionLtd
         public int OrderProductAmount1 { get; set; }
         public string OrderProductName2 { get; set; }
         public int OrderProductAmount2 { get; set; }
+        public int Confirm { get; set; }
+        public string CustomerName { get; set; }
         
         public Order(DateTime deadline, decimal width, decimal height, decimal spacing)
         {

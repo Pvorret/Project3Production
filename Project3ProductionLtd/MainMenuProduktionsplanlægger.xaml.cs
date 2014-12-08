@@ -20,6 +20,7 @@ namespace Project3ProductionLtd {
 
         MainWindow mainWin;
         OpretArbejdsplan opretArbejdsplan;
+        BekræftOrdreWindow bekræftOrdre;
         public MainMenuProduktionsplanlægger() 
         {
             InitializeComponent();
@@ -40,6 +41,13 @@ namespace Project3ProductionLtd {
         {
             opretArbejdsplan = new OpretArbejdsplan();
             opretArbejdsplan.Show();
+            Close();
+        }
+
+        private void orders_Click(object sender, RoutedEventArgs e)
+        {
+            bekræftOrdre = new BekræftOrdreWindow();
+            bekræftOrdre.Show();
             Close();
         }
     }

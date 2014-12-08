@@ -7,7 +7,7 @@
         <Label Name="PlanlæggerLabel" Content="Planlægger" HorizontalAlignment="Left" Margin="27,42,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="72"/>
         <Label Content="Planlægger" HorizontalAlignment="Left" Margin="90,42,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
         <Button x:Name="workplan" Content="Workplan" HorizontalAlignment="Left" Margin="55,87,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="orders" Content="Orders" HorizontalAlignment="Left" Margin="55,123,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="orders" Content="Orders" HorizontalAlignment="Left" Margin="55,123,0,0" VerticalAlignment="Top" Width="75" Click="orders_Click"/>
         <Button x:Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="75" Click="logout_Click"/>
         <Label Name="UnConfirmedOrderLabel" Content="3" HorizontalAlignment="Left" Margin="135,121,0,0" VerticalAlignment="Top" Height="35" Width="27"/>
         <Button Name="OpretArbejdsplanBtn" Content="OpretArbejdsplan" HorizontalAlignment="Left" Margin="55,147,0,0" VerticalAlignment="Top" Width="104" Click="OpretArbejdsplanBtn_Click"/>
