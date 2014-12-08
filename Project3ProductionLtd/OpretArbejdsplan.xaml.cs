@@ -163,11 +163,11 @@ namespace Project3ProductionLtd
 			       {
                        if (MachineRequiredListBox.SelectedItem.ToString().Equals(Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].Name))
                        {
-                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(true))
+                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate < DateTime.Now)
                            {
                                maskineVindue.MachineAvailableFromBox.Text = "Now";
                            }
-                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(false))
+                           else if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(false))
                            {
                                maskineVindue.MachineAvailableFromBox.Text = Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate.ToShortDateString();
                            }
@@ -175,7 +175,6 @@ namespace Project3ProductionLtd
 			       }
                    
                }
-
                maskineVindue.Show();
            }
            catch (Exception)

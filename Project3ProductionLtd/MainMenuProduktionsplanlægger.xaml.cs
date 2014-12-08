@@ -36,18 +36,17 @@ namespace Project3ProductionLtd {
             mainWin.Show();
             Close();
         }
-
-        private void OpretArbejdsplanBtn_Click(object sender, RoutedEventArgs e)
-        {
-            opretArbejdsplan = new OpretArbejdsplan();
-            opretArbejdsplan.Show();
-            Close();
-        }
-
         private void orders_Click(object sender, RoutedEventArgs e)
         {
             bekræftOrdre = new BekræftOrdreWindow();
             bekræftOrdre.Show();
+            Close();
+        }
+
+        private void workplan_Click(object sender, RoutedEventArgs e)
+        {
+            opretArbejdsplan = new OpretArbejdsplan();
+            opretArbejdsplan.Show();
             Close();
         }
     }

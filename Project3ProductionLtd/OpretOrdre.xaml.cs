@@ -92,7 +92,7 @@ namespace Project3ProductionLtd {
         }
 
         private void SubmitBt_Click(object sender, RoutedEventArgs e) {
-            Controller.NewOrderToDB(Controller.AddProductToTemporaryList());
+
         }
 
 

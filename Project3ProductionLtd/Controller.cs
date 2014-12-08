@@ -391,57 +391,60 @@ namespace Project3ProductionLtd
                 int k = -1;
                 while (reader.Read())
                 {
-                    if ("" == Convert.ToString(reader["ProductNo2"]))
+                    if (Convert.ToInt32(reader["Confirm"]).Equals(1))
                     {
-                        order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
-                        i++;
-                    }
-
-                    else if (Convert.ToString(reader["ProductNo2"]) != "")
-                    {
-                        order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
-                        order.product2List.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
-                        i++;
-                        k++;
-                    }
-
-                    if ("" == Convert.ToString(reader["ProductNo2"]))
-                    {
-                        Order newOrder = new Order()
+                        if ("" == Convert.ToString(reader["ProductNo2"]))
                         {
-                            Deadline = Convert.ToDateTime(reader["Deadline"]),
-                            Width = Convert.ToDecimal(reader["Width"]),
-                            Height = Convert.ToDecimal(reader["Height"]),
-                            Spacing = Convert.ToDecimal(reader["Spacing"]),
-                            OrderProductName1 = order.product1List[i].Name,
-                            OrderProductAmount1 = order.product1List[i].Amount,
-                            Price = Convert.ToDecimal(reader["Price"]),
-                            OrderName = Convert.ToString(reader["OrderName"]),
-                            Confirm = Convert.ToInt32(reader["Confirm"]),
-                            CustomerName = Convert.ToString(reader["CustomerName"])
-                        };
-                        orderList.Add(newOrder);
-                    }
-                    else if (Convert.ToString(reader["ProductNo2"]) != "")
-                    {
-                        Order anotherOrder = new Order()
+                            order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                            i++;
+                        }
+
+                        else if (Convert.ToString(reader["ProductNo2"]) != "")
                         {
-                            Deadline = Convert.ToDateTime(reader["Deadline"]),
-                            Width = Convert.ToDecimal(reader["Width"]),
-                            Height = Convert.ToDecimal(reader["Height"]),
-                            Spacing = Convert.ToDecimal(reader["Spacing"]),
+                            order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
+                            order.product2List.Add(new Product() { Name = Convert.ToString(reader["ProductNo2"]), Amount = Convert.ToInt32(reader["AmountNo2"]) });
+                            i++;
+                            k++;
+                        }
 
-                            OrderProductName1 = order.product1List[i].Name,
-                            OrderProductAmount1 = order.product1List[i].Amount,
-                            OrderProductName2 = order.product2List[k].Name,
-                            OrderProductAmount2 = order.product2List[k].Amount,
+                        if ("" == Convert.ToString(reader["ProductNo2"]))
+                        {
+                            Order newOrder = new Order()
+                            {
+                                Deadline = Convert.ToDateTime(reader["Deadline"]),
+                                Width = Convert.ToDecimal(reader["Width"]),
+                                Height = Convert.ToDecimal(reader["Height"]),
+                                Spacing = Convert.ToDecimal(reader["Spacing"]),
+                                OrderProductName1 = order.product1List[i].Name,
+                                OrderProductAmount1 = order.product1List[i].Amount,
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                OrderName = Convert.ToString(reader["OrderName"]),
+                                Confirm = Convert.ToInt32(reader["Confirm"]),
+                                CustomerName = Convert.ToString(reader["CustomerName"])
+                            };
+                            orderList.Add(newOrder);
+                        }
+                        else if (Convert.ToString(reader["ProductNo2"]) != "")
+                        {
+                            Order anotherOrder = new Order()
+                            {
+                                Deadline = Convert.ToDateTime(reader["Deadline"]),
+                                Width = Convert.ToDecimal(reader["Width"]),
+                                Height = Convert.ToDecimal(reader["Height"]),
+                                Spacing = Convert.ToDecimal(reader["Spacing"]),
 
-                            Price = Convert.ToDecimal(reader["Price"]),
-                            OrderName = Convert.ToString(reader["OrderName"]),
-                            Confirm = Convert.ToInt32(reader["Confirm"]),
-                            CustomerName = Convert.ToString(reader["CustomerName"])
-                        };
-                        orderList.Add(anotherOrder);
+                                OrderProductName1 = order.product1List[i].Name,
+                                OrderProductAmount1 = order.product1List[i].Amount,
+                                OrderProductName2 = order.product2List[k].Name,
+                                OrderProductAmount2 = order.product2List[k].Amount,
+
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                OrderName = Convert.ToString(reader["OrderName"]),
+                                Confirm = Convert.ToInt32(reader["Confirm"]),
+                                CustomerName = Convert.ToString(reader["CustomerName"])
+                            };
+                            orderList.Add(anotherOrder);
+                        }
                     }
                 }
             }
