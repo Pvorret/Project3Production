@@ -88,6 +88,10 @@ namespace Project3ProductionLtd {
             SubmitBt.IsEnabled = true;
         }
 
+        private void AddProduct_Click(object sender, RoutedEventArgs e) {
+
+        }
+
        
 
 
