@@ -13,6 +13,7 @@ namespace Project3ProductionLtd
     {
         public static List<Order> orderList;
         public static List<Product> productList;
+        public static List<Machine> fullMachineList;
         /*
         public bool setOrderAsConfirmed()
         {
@@ -175,14 +176,15 @@ namespace Project3ProductionLtd
         public static List<Machine> getMachineTimes()
         {
             SqlConnection connect = connectToSql();
+            fullMachineList = new List<Machine>();
             try
-            { 
+            {
                 connect.Open();
                 SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader;
                 reader = sqlCmd.ExecuteReader();
-                machineList = new List<Machine>();
+
                 while (reader.Read())
                 {
                     Machine machineTimes = new Machine()
@@ -192,7 +194,7 @@ namespace Project3ProductionLtd
                         EndDate = Convert.ToDateTime(reader["EndDate"]),
                         Deadline = Convert.ToDateTime(reader["Deadline"])
                     };
-                    machineList.Add(machineTimes);
+                    fullMachineList.Add(machineTimes);
                 }
 
             }
@@ -205,7 +207,7 @@ namespace Project3ProductionLtd
                 connect.Close();
                 connect.Dispose();
             }
-            return machineList;
+            return fullMachineList;
         }
         public static Machine getMachinesFromDb(string MachineName)
         {
@@ -235,6 +237,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "Svejse" && Convert.ToString(reader["Machines"]).Equals("Svejsestation"))
@@ -252,6 +255,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "Bukke" && Convert.ToString(reader["Machines"]).Equals("Bukkemaskine"))
@@ -266,6 +270,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "Laser" && Convert.ToString(reader["Machines"]).Equals("Lasercutter"))
@@ -280,6 +285,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "CNC" && Convert.ToString(reader["Machines"]).Equals("CNC fræser"))
@@ -297,6 +303,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "Saks" && Convert.ToString(reader["Machines"]).Equals("Maskinsaks"))
@@ -311,6 +318,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                     if (MachineName == "Monterings" && Convert.ToString(reader["Machines"]).Equals("Monteringsbænk"))
@@ -328,6 +336,7 @@ namespace Project3ProductionLtd
                             machine.IsAvailableNow = false;
                             machine.StartDate = Convert.ToDateTime(reader["StartDate"]);
                             machine.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            machine.Deadline = Convert.ToDateTime(reader["Deadline"]);
                         }
                     }
                 }
