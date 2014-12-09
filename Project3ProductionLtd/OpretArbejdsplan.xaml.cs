@@ -27,7 +27,7 @@ namespace Project3ProductionLtd
         public OpretArbejdsplan()
         {
             InitializeComponent();
-            
+
             ProductDropdown.IsEnabled = false;
             ProductLabel.IsEnabled = false;
             ProductNameLabel.IsEnabled = false;
@@ -43,7 +43,7 @@ namespace Project3ProductionLtd
             menuPlanlægger.Show();
             Close();
         }
-        
+
         private void OrderDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             foreach (Order name in Controller.orderList)
@@ -60,7 +60,7 @@ namespace Project3ProductionLtd
                         ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName1);
                         if (Controller.orderList[i].OrderProductName2 != "")
                         {
-                        ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
+                            ProductDropdown.Items.Add(Controller.orderList[i].OrderProductName2);
                         }
                     }
                     else if (Controller.orderList[i].OrderProductName2 != "")
@@ -70,22 +70,21 @@ namespace Project3ProductionLtd
                 }
             }
             ProductDropdown.IsEnabled = true;
-
         }
-        
+
         private void OrderDropdown_DropDownOpened(object sender, EventArgs e)
         {
             if (OrderDropdown.Items.Count == 0)
             {
                 foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
                 {
-                OrderDropdown.Items.Add(orderName.OrderName);
+                    if (orderName.Confirm.Equals(1))
+                    {
+                        OrderDropdown.Items.Add(orderName.OrderName);
+                    }
                 }
             }
-            
-            
         }
-
         private void ProductDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ProductLabel.IsEnabled = true;
@@ -94,15 +93,15 @@ namespace Project3ProductionLtd
             MachineRequiredLabel.IsEnabled = true;
             MachineRequiredListBox.IsEnabled = true;
             for (int j = 0; j < Controller.orderList.Count; j++)
-			{
+            {
                 foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[j].OrderProductName1))
                 {
                     for (int k = 0; k < MachineName.machineList.Count; k++)
                     {
                         MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
-                    } 
+                    }
                 }
-                
+
                 foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[j].OrderProductName2))
                 {
                     for (int k = 0; k < MachineName.machineList.Count; k++)
@@ -110,7 +109,7 @@ namespace Project3ProductionLtd
                         MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
                     }
                 }
-			}
+            }
             try
             {
                 for (int i = 0; i < Controller.orderList.Count; i++)
@@ -149,57 +148,55 @@ namespace Project3ProductionLtd
                 ProductNameLabel.Content = "";
             }
         }
-       
+        private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            maskineVindue = new MaskineVindue();
+            try
+            {
+                maskineVindue.MachineNameLabel.Content = MachineRequiredListBox.SelectedItem.ToString();
+                for (int i = 0; i < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString()).Count; i++)
+                {
+                    for (int k = 0; k < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList.Count; k++)
+                    {
+                        if (MachineRequiredListBox.SelectedItem.ToString().Equals(Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].Name))
+                        {
+                            if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate < DateTime.Now)
+                            {
+                                maskineVindue.MachineAvailableFromBox.Text = "Now";
+                            }
+                            else if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(false))
+                            {
+                                maskineVindue.MachineAvailableFromBox.Text = Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate.ToShortDateString();
+                            }
+                        }
+                    }
 
-       private void MachineRequiredListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-       {
-           maskineVindue = new MaskineVindue();
-           try
-           {
-               maskineVindue.MachineNameLabel.Content = MachineRequiredListBox.SelectedItem.ToString();
-               for (int i = 0; i < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString()).Count; i++)
-               {
-                   for (int k = 0; k < Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList.Count; k++)
-			       {
-                       if (MachineRequiredListBox.SelectedItem.ToString().Equals(Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].Name))
-                       {
-                           if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate < DateTime.Now)
-                           {
-                               maskineVindue.MachineAvailableFromBox.Text = "Now";
-                           }
-                           else if (Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].IsAvailableNow.Equals(false))
-                           {
-                               maskineVindue.MachineAvailableFromBox.Text = Controller.getRequiredMachineFromProductDB(ProductDropdown.SelectedItem.ToString())[i].machineList[k].EndDate.ToShortDateString();
-                           }
-                       }
-			       }
-                   
-               }
-               maskineVindue.Show();
-           }
-           catch (Exception)
-           {
-               maskineVindue.Close();
-               for (int i = 0; i < Controller.orderList.Count; i++)
-               {
-                   foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
-                   {
-                       for (int k = 0; k < MachineName.machineList.Count; k++)
-                       {
-                           MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
-                       }
-                   }
-                   foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
-                   {
-               
-                       for (int k = 0; k < MachineName.machineList.Count; k++)
-                       {
-                           MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
-                       }
-                   }
-               }
-               
-           }
-       }
-}
+                }
+                maskineVindue.Show();
+            }
+            catch (Exception)
+            {
+                maskineVindue.Close();
+                for (int i = 0; i < Controller.orderList.Count; i++)
+                {
+                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
+                    {
+                        for (int k = 0; k < MachineName.machineList.Count; k++)
+                        {
+                            MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                        }
+                    }
+                    foreach (Product MachineName in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
+                    {
+
+                        for (int k = 0; k < MachineName.machineList.Count; k++)
+                        {
+                            MachineRequiredListBox.Items.Remove(MachineName.machineList[k].Name);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }
