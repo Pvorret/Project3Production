@@ -445,10 +445,14 @@ namespace Project3ProductionLtd
             return isConfirmed;
         }
         
-        public static List<Product> AddProductToTemporaryList() {
+        public static List<Product> AddProductToTemporaryList(string name, int amount) {
             productList = new List<Product>();
-
-            return AddProductToTemporaryList();
+            Product product = new Product();
+            product.Name = name;
+            product.Amount = amount;
+            productList.Add(product);
+            MessageBox.Show(productList.Count.ToString());
+            return AddProductToTemporaryList(name, amount);
         }
 
         public static void NewOrderToDB(List<Order> NewOrder) {
