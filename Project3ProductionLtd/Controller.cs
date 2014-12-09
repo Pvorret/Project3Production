@@ -464,7 +464,7 @@ namespace Project3ProductionLtd
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.Add(new SqlParameter("@Name", name));
                 sqlCmd.Parameters.Add(new SqlParameter("@StreetAddress", address));
-                sqlCmd.Parameters.Add(new SqlParameter("@PhonNumber", address));
+                sqlCmd.Parameters.Add(new SqlParameter("@PhoneNumber", address));
                 sqlCmd.Parameters.Add(new SqlParameter("@Email", email));
                 sqlCmd.ExecuteNonQuery();
             }

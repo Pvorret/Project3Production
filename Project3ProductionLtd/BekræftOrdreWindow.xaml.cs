@@ -49,6 +49,10 @@ namespace Project3ProductionLtd
 
         private void ConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
+            if (ConfirmOrder.Content == "Confirm")
+            {
+
+            }
         }
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
