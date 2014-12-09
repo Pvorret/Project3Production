@@ -60,15 +60,7 @@ namespace Project3ProductionLtd
                     CustomerName.Content = Controller.getOrdersFromDatabaseToOrderList()[i].CustomerName;
                     OrderDeadline.Content = Convert.ToString(Controller.getOrdersFromDatabaseToOrderList()[i].Deadline);
 
-                    //if(DateTime.Now < Controller.orderList[i].Deadline)
-                    //{
-                    //    Pro1M1.Minimum = 0;
-                    //}
-                    //if(DateTime.Now > Controller.orderList[i].Deadline)
-                    //{
-                    //    Pro1M1.Maximum = 100;
-                    //}
-                    //Pro1M1.Maximum = Convert.ToDouble(Controller.orderList[i].Deadline.ToOADate());
+
                     MessageBox.Show(Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count.ToString());
                         
                     for (int j = 0; j < Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count; j++)

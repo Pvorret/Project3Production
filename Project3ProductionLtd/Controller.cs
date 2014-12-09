@@ -454,6 +454,30 @@ namespace Project3ProductionLtd
         public static void NewOrderToDB(List<Order> NewOrder) {
 
         }
+        public static void NewCustomerToDB(string name, string address, string phonNumber, string email)
+        {
+            SqlConnection connect = connectToSql();
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("newCustomer", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@Name", name));
+                sqlCmd.Parameters.Add(new SqlParameter("@StreetAddress", address));
+                sqlCmd.Parameters.Add(new SqlParameter("@PhonNumber", address));
+                sqlCmd.Parameters.Add(new SqlParameter("@Email", email));
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+        }
 
     }
 }

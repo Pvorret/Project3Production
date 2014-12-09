@@ -21,6 +21,7 @@ namespace Project3ProductionLtd
     {
         MainWindow mainWin;
         OpretOrdre opretordre;
+        OpretKunde opretKunde;
         public MainMenuSælger()
         {
             InitializeComponent();
@@ -37,6 +38,13 @@ namespace Project3ProductionLtd
         private void makeorder_Click(object sender, RoutedEventArgs e) {
             opretordre = new OpretOrdre();
             opretordre.Show();
+            Close();
+        }
+
+        private void addnewcustomer_Click(object sender, RoutedEventArgs e)
+        {
+            opretKunde = new OpretKunde();
+            opretKunde.Show();
             Close();
         }
     }
