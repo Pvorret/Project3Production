@@ -456,7 +456,8 @@ namespace Project3ProductionLtd
             }
             return orderList;
         }
-        public static List<Product> AddProductToTemporarilyList() {
+        public static List<Product> AddProductToTemporarilyList() 
+        {
             List<Product> TemporarilyList = new List<Product>();
             return TemporarilyList;
         }

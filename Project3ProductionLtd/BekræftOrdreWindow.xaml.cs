@@ -70,6 +70,7 @@ namespace Project3ProductionLtd
                     //}
                     //Pro1M1.Maximum = Convert.ToDouble(Controller.orderList[i].Deadline.ToOADate());
                     MessageBox.Show(Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count.ToString());
+                        
                     for (int j = 0; j < Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count; j++)
                     {
                         foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product1List[j].Name))
