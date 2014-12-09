@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OpretKunde.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OpretOrdre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +119,9 @@
     </Compile>
     <Compile Include="OpretArbejdsplan.xaml.cs">
       <DependentUpon>OpretArbejdsplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpretKunde.xaml.cs">
+      <DependentUpon>OpretKunde.xaml</DependentUpon>
     </Compile>
     <Compile Include="OpretOrdre.xaml.cs">
       <DependentUpon>OpretOrdre.xaml</DependentUpon>

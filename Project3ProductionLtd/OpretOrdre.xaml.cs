@@ -88,7 +88,11 @@ namespace Project3ProductionLtd {
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e) {
-            
+            List<Product> temporayList = new List<Product>();
+
+            for (int i = 0; i < Controller.getProductsFromDatabaseToProductList().Count; i++) {
+                Controller.getProductsFromDatabaseToProductList()[i].Name;
+            }
         }
 
         private void SubmitBt_Click(object sender, RoutedEventArgs e) {
