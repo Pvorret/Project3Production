@@ -391,8 +391,6 @@ namespace Project3ProductionLtd
                 int k = -1;
                 while (reader.Read())
                 {
-                    if (Convert.ToInt32(reader["Confirm"]).Equals(1))
-                    {
                         if ("" == Convert.ToString(reader["ProductNo2"]))
                         {
                             order.product1List.Add(new Product() { Name = Convert.ToString(reader["ProductNo1"]), Amount = Convert.ToInt32(reader["AmountNo1"]) });
@@ -445,7 +443,6 @@ namespace Project3ProductionLtd
                             };
                             orderList.Add(anotherOrder);
                         }
-                    }
                 }
             }
             catch (Exception e)
