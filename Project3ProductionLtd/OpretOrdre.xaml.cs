@@ -88,19 +88,20 @@ namespace Project3ProductionLtd {
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e) {
-            List<Product> temporayList = new List<Product>();
-
-
-        }
+            Controller.AddProductToTemporaryList(ProductTypeDropdown.SelectedItem.ToString(), Convert.ToInt32(Amount.Text));
+            
+            //if (temporayList.Count < 3) {
+            //    Product product = new Product();
+            //        Controller.getProductsFromDatabaseToProductList().Name = product.Name;
+            //        Controller.getProductsFromDatabaseToProductList()[i].Amount = product.Amount;
+            //    temporayList.Add(product);
+            }
 
         private void SubmitBt_Click(object sender, RoutedEventArgs e) {
 
         }
-
-
-
-       
+        }  
 
 
     }
-}
+
