@@ -51,23 +51,43 @@ namespace Project3ProductionLtd
         {
             if (ConfirmOrder.Content == "Confirm")
             {
-
+                Controller.confirmOrder(OrderSelected.SelectedItem.ToString());
+            }
+            else
+            if (ConfirmOrder.Content == "Estimate")
+            {
+                List<Order> orders = new List<Order>();
+                orders = Controller.getOrdersFromDatabaseToOrderList();
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
+                    {
+                        Controller.newDeadline(OrderSelected.SelectedItem.ToString(), orders[i].Deadline);
+                    }
+                }
+                orders = Controller.getOrdersFromDatabaseToOrderList();
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
+                    {
+                        OrderDeadline.Content = orders[i].Deadline;
+                    }
+                }
+                
             }
         }
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Controller.getMachineTimes();
-            for (int i = 0; i < Controller.getOrdersFromDatabaseToOrderList().Count; i++)
+            List<Order> orders = new List<Order>();
+            orders = Controller.getOrdersFromDatabaseToOrderList();
+            for (int i = 0; i < orders.Count; i++)
             {
-                if (OrderSelected.SelectedItem.Equals(Controller.getOrdersFromDatabaseToOrderList()[i].OrderName))
+                if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
                 {
-                    CustomerName.Content = Controller.getOrdersFromDatabaseToOrderList()[i].CustomerName;
-                    OrderDeadline.Content = Convert.ToString(Controller.getOrdersFromDatabaseToOrderList()[i].Deadline);
-
-
-                    MessageBox.Show(Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count.ToString());
+                    CustomerName.Content = orders[i].CustomerName;
+                    OrderDeadline.Content = orders[i].Deadline;
                         
-                    for (int j = 0; j < Controller.getOrdersFromDatabaseToOrderList()[i].product1List.Count; j++)
+                    for (int j = 0; j < orders[i].product1List.Count; j++)
                     {
                         foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product1List[j].Name))
                         {

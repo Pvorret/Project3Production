@@ -481,7 +481,55 @@ namespace Project3ProductionLtd
                 connect.Close();
                 connect.Dispose();
             }
+            
         }
+        public static void confirmOrder(string orderName)
+        {
+            SqlConnection con = connectToSql();
+            try
+            {
+                con.Open();
+                SqlCommand sqlCmd = new SqlCommand("confirmOrder", con);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@confirm", 1));
+                sqlCmd.Parameters.Add(new SqlParameter("@OrderName", orderName));
 
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+        public static void newDeadline(string orderName, DateTime deadline)
+        {
+            SqlConnection con = connectToSql();
+            try
+            {
+                DateTime newDeadline = new DateTime();
+                newDeadline = deadline.AddDays(5);
+                con.Open();
+                SqlCommand sqlCmd = new SqlCommand("newDeadline", con);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@deadline", newDeadline));
+                sqlCmd.Parameters.Add(new SqlParameter("@OrderName", orderName));
+
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
     }
 }
