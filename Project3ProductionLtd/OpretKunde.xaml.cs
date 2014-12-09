@@ -16,9 +16,28 @@ namespace Project3ProductionLtd {
     /// <summary>
     /// Interaction logic for OpretKunde.xaml
     /// </summary>
-    public partial class OpretKunde : Window {
-        public OpretKunde() {
+    public partial class OpretKunde : Window 
+    {
+        MainMenuSælger menuSælger;
+        public OpretKunde() 
+        {
             InitializeComponent();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            menuSælger = new MainMenuSælger();
+            menuSælger.Show();
+            Close();
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            if(Name.Text != "" && Address.Text !="" && Telephonenumber.Text != "")
+            Controller.NewCustomerToDB(Name.Text, Address.Text, Telephonenumber.Text, Email.Text);
+            MessageBox.Show("Customer Created");
+            menuSælger = new MainMenuSælger();
+        }
+
     }
 }

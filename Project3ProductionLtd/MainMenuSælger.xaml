@@ -7,7 +7,7 @@
         <Label Name="usernameLabel" Content="username" HorizontalAlignment="Left" Margin="64,46,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="62"/>
         <Label Content="Sælger" HorizontalAlignment="Left" Margin="118,46,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="48"/>
         <Button Name="makeorder" Content="Make order" HorizontalAlignment="Left" Margin="79,88,0,0" VerticalAlignment="Top" Width="75" Click="makeorder_Click"/>
-        <Button Name="addnewcustomer" Content="Add New Customer" HorizontalAlignment="Left" Margin="52,127,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button Name="addnewcustomer" Content="Add New Customer" HorizontalAlignment="Left" Margin="52,127,0,0" VerticalAlignment="Top" Width="131" Click="addnewcustomer_Click"/>
         <Button Name="logout" Content="Log Out" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Width="75" Click="logout_Click"/>
         <Button Name="editcustomer" Content="Edit Customer" HorizontalAlignment="Left" Margin="67,167,0,0" VerticalAlignment="Top" Width="99"/>
         <Button Name="showcatelog" Content="Show Catelog" HorizontalAlignment="Left" Margin="67,202,0,0" VerticalAlignment="Top" Width="99"/>
