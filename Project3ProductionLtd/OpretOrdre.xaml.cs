@@ -77,7 +77,6 @@ namespace Project3ProductionLtd {
         }
 
         private void SpecielOrdre_Checked(object sender, RoutedEventArgs e) {
-            
             ProductTypeDropdown.IsEnabled = false;
             Height.IsEnabled = true;
             Width.IsEnabled = true;
@@ -89,8 +88,14 @@ namespace Project3ProductionLtd {
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e) {
+            
+        }
+
+        private void SubmitBt_Click(object sender, RoutedEventArgs e) {
 
         }
+
+
 
        
 
