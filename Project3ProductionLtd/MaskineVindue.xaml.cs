@@ -36,13 +36,14 @@ namespace Project3ProductionLtd
 
         private void ApproveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if ((StartDateTextBoxDD.Text != "" && StartDateTextBoxMM.Text != "" && StartDateTextBoxYYYY.Text != "") && (StartDateTextBoxDD.Text != "dd" && StartDateTextBoxMM.Text != "mm" && StartDateTextBoxYYYY.Text != "yyyy"))
+            /*if ((StartDateTextBoxDD.Text != "" && StartDateTextBoxMM.Text != "" && StartDateTextBoxYYYY.Text != "") && (StartDateTextBoxDD.Text != "dd" && StartDateTextBoxMM.Text != "mm" && StartDateTextBoxYYYY.Text != "yyyy"))
             {
                 string StartDate = StartDateTextBoxDD.Text + "-" + StartDateTextBoxMM.Text + "-" + StartDateTextBoxYYYY.Text;
                 EndDateTextBoxDD.Text = Convert.ToString((Convert.ToInt32(StartDateTextBoxDD.Text) + 8));
                 EndDateTextBoxMM.Text = StartDateTextBoxMM.Text;
                 EndDateTextBoxYYYY.Text = StartDateTextBoxYYYY.Text;
-           }
+           }*/
+            MessageBox.Show("It does not do anything. At this time. Press Return to return to previous window");
         }
         private void StartDateTextBoxDD_TextChanged(object sender, TextChangedEventArgs e){ }
 
