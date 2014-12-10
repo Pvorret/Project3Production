@@ -27,7 +27,7 @@ namespace Project3ProductionLtd
         public OpretArbejdsplan()
         {
             InitializeComponent();
-
+            Controller.getOrdersFromDatabaseToOrderList();
             ProductDropdown.IsEnabled = false;
             ProductLabel.IsEnabled = false;
             ProductNameLabel.IsEnabled = false;
@@ -76,7 +76,7 @@ namespace Project3ProductionLtd
         {
             if (OrderDropdown.Items.Count == 0)
             {
-                foreach (Order orderName in Controller.getOrdersFromDatabaseToOrderList())
+                foreach (Order orderName in Controller.orderList)
                 {
                     if (orderName.Confirm.Equals(1))
                     {

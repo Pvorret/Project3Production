@@ -22,6 +22,7 @@ namespace Project3ProductionLtd
         MainMenuProduktionsplanlægger menuPlanlægger;
         public BekræftOrdreWindow()
         {
+            Controller.getOrdersFromDatabaseToOrderList();
             InitializeComponent();
         }
 
@@ -49,15 +50,15 @@ namespace Project3ProductionLtd
 
         private void ConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
-            if (ConfirmOrder.Content == "Confirm")
+            if (ConfirmOrder.Content.Equals("Confirm"))
             {
                 Controller.confirmOrder(OrderSelected.SelectedItem.ToString());
             }
             else
-            if (ConfirmOrder.Content == "Estimate")
+            if (ConfirmOrder.Content.Equals("Estimate"))
             {
                 List<Order> orders = new List<Order>();
-                orders = Controller.getOrdersFromDatabaseToOrderList();
+                orders = Controller.orderList; 
                 for (int i = 0; i < orders.Count; i++)
                 {
                     if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
@@ -65,7 +66,7 @@ namespace Project3ProductionLtd
                         Controller.newDeadline(OrderSelected.SelectedItem.ToString(), orders[i].Deadline);
                     }
                 }
-                orders = Controller.getOrdersFromDatabaseToOrderList();
+                orders = Controller.orderList;
                 for (int i = 0; i < orders.Count; i++)
                 {
                     if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
@@ -79,7 +80,7 @@ namespace Project3ProductionLtd
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             List<Order> orders = new List<Order>();
-            orders = Controller.getOrdersFromDatabaseToOrderList();
+            orders = Controller.orderList;
             for (int i = 0; i < orders.Count; i++)
             {
                 if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
@@ -89,7 +90,7 @@ namespace Project3ProductionLtd
                         
                     for (int j = 0; j < orders[i].product1List.Count; j++)
                     {
-                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product1List[j].Name))
+                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product1List[j].Name))
                         {
                             for (int k = 0; k < machine.machineList.Count; k++)
                             {
@@ -115,9 +116,9 @@ namespace Project3ProductionLtd
                                 //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
                             }
                         }
-                        for (int t = 0; t < Controller.getOrdersFromDatabaseToOrderList()[i].product2List.Count; t++)
+                        for (int t = 0; t < Controller.orderList[i].product2List.Count; t++)
                         {
-                            foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.getOrdersFromDatabaseToOrderList()[i].product2List[t].Name))
+                            foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product2List[t].Name))
                             {
                                 for (int k = 0; k < machine.machineList.Count; k++)
                                 {
@@ -152,7 +153,7 @@ namespace Project3ProductionLtd
         {
             if (OrderSelected.Items.Count == 0)
             {
-                foreach (Order order in Controller.getOrdersFromDatabaseToOrderList())
+                foreach (Order order in Controller.orderList)
                 {
                     if (order.Confirm == 0)
                     {
