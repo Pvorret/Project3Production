@@ -13,7 +13,7 @@ namespace Project3ProductionLtd
     {
         public static List<Order> orderList;
         public static List<Product> productList;
-        public static SqlConnection connectToSql()
+        public static SqlConnection connectToSql() //Lavet af Phillip
         {
             SqlConnection connect = new SqlConnection(
                 "Server=ealdb1.eal.local;" +
@@ -24,12 +24,11 @@ namespace Project3ProductionLtd
             return connect;
 
         }
-        public static int logIn(string inuserName, string inpassword)
+        public static int logIn(string inuserName, string inpassword) //Lavet af Phillip
         {
             string userName = inuserName;
             string password = inpassword;
             SqlConnection connect = connectToSql();
-
             try
             {
                 connect.Open();
@@ -43,7 +42,7 @@ namespace Project3ProductionLtd
 
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
-                reader.Read(); //Gør at den faktisk kan læse outputtet fra databasen
+                reader.Read(); 
 
                 int id = int.Parse(Convert.ToString(reader["Id"]));
 
@@ -59,7 +58,7 @@ namespace Project3ProductionLtd
                 connect.Dispose();
             }
         }
-        public static List<Product> getProductsFromDatabaseToProductList()
+        public static List<Product> getProductsFromDatabaseToProductList() //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
             productList = new List<Product>();
@@ -99,7 +98,7 @@ namespace Project3ProductionLtd
             }
             return productList;
         }
-        public static List<Product> getRequiredMachineFromProductDB(string productName)
+        public static List<Product> getRequiredMachineFromProductDB(string productName) //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
             List<Product> productChosenMachineList = new List<Product>();
@@ -197,7 +196,7 @@ namespace Project3ProductionLtd
             }
             return fullMachineList;
         }
-        public static void getOrdersFromDatabaseToOrderList()
+        public static void getOrdersFromDatabaseToOrderList() //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
             orderList = new List<Order>();
@@ -250,7 +249,7 @@ namespace Project3ProductionLtd
                 connect.Dispose();
             }
         }
-        public static Machine getMachinesFromDb(string MachineName)
+        public static Machine getMachinesFromDb(string MachineName) //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
             Machine machine = new Machine();
@@ -393,7 +392,7 @@ namespace Project3ProductionLtd
             }
             return machine;
         }
-        public static int isOrderConfirmed()
+        public static int isOrderConfirmed() //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
             int isConfirmed = 0;
@@ -427,7 +426,8 @@ namespace Project3ProductionLtd
             return isConfirmed;
         }
         
-        public static List<Product> AddProductToTemporaryList(string name, int amount) {
+        public static List<Product> AddProductToTemporaryList(string name, int amount) //Lavet af Nicolaj
+        {
             productList = new List<Product>();
             Product product = new Product();
             product.Name = name;
@@ -437,10 +437,11 @@ namespace Project3ProductionLtd
             return AddProductToTemporaryList(name, amount);
         }
 
-        public static void NewOrderToDB(List<Order> NewOrder) {
+        public static void NewOrderToDB(List<Order> NewOrder) //Lavet af Nicolaj
+        {
 
         }
-        public static void NewCustomerToDB(string name, string address, string phonNumber, string email)
+        public static void NewCustomerToDB(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
             SqlConnection connect = connectToSql();
             try
@@ -465,7 +466,7 @@ namespace Project3ProductionLtd
             }
             
         }
-        public static void confirmOrder(string orderName)
+        public static void confirmOrder(string orderName) //Lavet af Thomas
         {
             SqlConnection con = connectToSql();
             try
@@ -488,7 +489,7 @@ namespace Project3ProductionLtd
                 con.Dispose();
             }
         }
-        public static void newDeadline(string orderName, DateTime deadline)
+        public static void newDeadline(string orderName, DateTime deadline) //Lavet af Thomas
         {
             SqlConnection con = connectToSql();
             try
