@@ -57,21 +57,19 @@ namespace Project3ProductionLtd
             else
             if (ConfirmOrder.Content.Equals("Estimate"))
             {
-                List<Order> orders = new List<Order>();
-                orders = Controller.orderList; 
-                for (int i = 0; i < orders.Count; i++)
+                for (int i = 0; i < Controller.orderList.Count; i++)
                 {
-                    if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
+                    if (OrderSelected.SelectedItem.Equals(Controller.orderList[i].OrderName))
                     {
-                        Controller.newDeadline(OrderSelected.SelectedItem.ToString(), orders[i].Deadline);
+                        Controller.newDeadline(OrderSelected.SelectedItem.ToString(), Controller.orderList[i].Deadline);
                     }
                 }
-                orders = Controller.orderList;
-                for (int i = 0; i < orders.Count; i++)
+                Controller.getOrdersFromDatabaseToOrderList();
+                for (int i = 0; i < Controller.orderList.Count; i++)
                 {
-                    if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
+                    if (OrderSelected.SelectedItem.Equals(Controller.orderList[i].OrderName))
                     {
-                        OrderDeadline.Content = orders[i].Deadline;
+                        OrderDeadline.Content = Controller.orderList[i].Deadline;
                     }
                 }
                 
@@ -79,18 +77,16 @@ namespace Project3ProductionLtd
         }
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<Order> orders = new List<Order>();
-            orders = Controller.orderList;
-            for (int i = 0; i < orders.Count; i++)
+            for (int i = 0; i < Controller.orderList.Count; i++)
             {
-                if (OrderSelected.SelectedItem.Equals(orders[i].OrderName))
+                if (OrderSelected.SelectedItem.Equals(Controller.orderList[i].OrderName))
                 {
-                    CustomerName.Content = orders[i].CustomerName;
-                    OrderDeadline.Content = orders[i].Deadline;
-                        
-                    for (int j = 0; j < orders[i].product1List.Count; j++)
+                    CustomerName.Content = Controller.orderList[i].CustomerName;
+                    OrderDeadline.Content = Controller.orderList[i].Deadline;
+
+                    for (int j = 0; j < Controller.orderList[i].product1List.Count; j++)
                     {
-                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].product1List[j].Name))
+                        foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
                         {
                             for (int k = 0; k < machine.machineList.Count; k++)
                             {
