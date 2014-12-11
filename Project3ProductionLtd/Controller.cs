@@ -415,7 +415,7 @@ namespace Project3ProductionLtd
 
                 while (Controller.productList.Count < 3) {
                     for (int i = 0; i < Controller.productList.Count; i++) {
-                        if (Controller.productList[0].Name.Equals(Convert.ToInt32(reader["ProductID"]) < 9)) {
+                        if (Controller.productList[0].Name.Equals(Convert.ToInt32(reader["ProductID"]) < 9) && reader["ProductNo1"].Equals("") || reader["ProductNo2"].Equals("")) {
                                 sqlCmd.Parameters.Add(new SqlParameter("@Deadline", "0"));
                                 sqlCmd.Parameters.Add(new SqlParameter("Width", 0));
                                 sqlCmd.Parameters.Add(new SqlParameter("@Height", 0));
