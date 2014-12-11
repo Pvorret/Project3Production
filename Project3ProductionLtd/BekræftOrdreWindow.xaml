@@ -12,7 +12,10 @@
         <Label Name="OrderConfirmation" Content="Select order" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,-1,0,0" Width="75"/>
         <Label Name="CustomerName" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="63,52,0,0"/>
         <Label Name="OrderDeadline" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,69,0,0"/>
-        <ProgressBar Name="Pro1M1" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="187" Margin="11,114,0,0" ValueChanged="Pro1M1_ValueChanged"/>
+        <ProgressBar Name="Pro1M1" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="187" Margin="11,127,0,0" ValueChanged="Pro1M1_ValueChanged"/>
+        <ProgressBar Name="Pro2" HorizontalAlignment="Left" Height="10" Margin="11,183,0,0" VerticalAlignment="Top" Width="187" ValueChanged="Pro2_ValueChanged"/>
+        <Label Name="Product1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,101,0,0"/>
+        <Label Name="Product2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,157,0,0"/>
 
     </Grid>
 </Window>

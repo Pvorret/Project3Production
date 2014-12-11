@@ -160,42 +160,6 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
-        public static List<Machine> getMachineTimes()
-        {
-            SqlConnection connect = connectToSql();
-            List<Machine> fullMachineList = new List<Machine>();
-            try
-            {
-                connect.Open();
-                SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                SqlDataReader reader;
-                reader = sqlCmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    Machine machineTimes = new Machine()
-                    {
-                        Name = Convert.ToString(reader["Machines"]),
-                        StartDate = Convert.ToDateTime(reader["StartDate"]),
-                        EndDate = Convert.ToDateTime(reader["EndDate"]),
-                        Deadline = Convert.ToDateTime(reader["Deadline"])
-                    };
-                    fullMachineList.Add(machineTimes);
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                connect.Close();
-                connect.Dispose();
-            }
-            return fullMachineList;
-        }
         public static void getOrdersFromDatabaseToOrderList() //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
