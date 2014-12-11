@@ -160,7 +160,7 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
-        public static List<Machine> getMachineTimes()
+        public static List<Machine> getMachineTimes() //Lavet af Thomas
         {
             SqlConnection connect = connectToSql();
             List<Machine> fullMachineList = new List<Machine>();
