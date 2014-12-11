@@ -439,7 +439,8 @@ namespace Project3ProductionLtd
 
         public static void NewOrderToDB(List<Order> NewOrder) //Lavet af Nicolaj
         {
-
+            orderList = new List<Order>();
+            Order order = new Order();
         }
         public static void NewCustomerToDB(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
