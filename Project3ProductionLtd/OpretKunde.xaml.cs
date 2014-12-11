@@ -34,7 +34,7 @@ namespace Project3ProductionLtd {
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             if(Name.Text != "" && Address.Text !="" && Telephonenumber.Text != "")
-            Controller.NewCustomerToDB(Name.Text, Address.Text, Telephonenumber.Text, Email.Text);
+            Controller.EnterCustomerInfomation(Name.Text, Address.Text, Telephonenumber.Text, Email.Text);
             MessageBox.Show("Customer Created");
             menuSælger = new MainMenuSælger();
         }

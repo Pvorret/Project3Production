@@ -23,13 +23,5 @@ namespace Project3ProductionLtd
         public int InStock { get; set; }
 
         public List<Machine> machineList = new List<Machine>();
-
-        public bool setProdMachineDeadline()
-        {
-
-
-            return true;
-        }
-
     }
 }

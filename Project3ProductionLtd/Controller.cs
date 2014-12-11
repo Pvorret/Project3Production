@@ -160,42 +160,6 @@ namespace Project3ProductionLtd
             }
             return productChosenMachineList;
         }
-        public static List<Machine> getMachineTimes() //Lavet af Thomas
-        {
-            SqlConnection connect = connectToSql();
-            List<Machine> fullMachineList = new List<Machine>();
-            try
-            {
-                connect.Open();
-                SqlCommand sqlCmd = new SqlCommand("ReturnMachines", connect);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                SqlDataReader reader;
-                reader = sqlCmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    Machine machineTimes = new Machine()
-                    {
-                        Name = Convert.ToString(reader["Machines"]),
-                        StartDate = Convert.ToDateTime(reader["StartDate"]),
-                        EndDate = Convert.ToDateTime(reader["EndDate"]),
-                        Deadline = Convert.ToDateTime(reader["Deadline"])
-                    };
-                    fullMachineList.Add(machineTimes);
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                connect.Close();
-                connect.Dispose();
-            }
-            return fullMachineList;
-        }
         public static void getOrdersFromDatabaseToOrderList() //Lavet af Phillip
         {
             SqlConnection connect = connectToSql();
@@ -439,9 +403,10 @@ namespace Project3ProductionLtd
 
         public static void NewOrderToDB(List<Order> NewOrder) //Lavet af Nicolaj
         {
-
+            orderList = new List<Order>();
+            Order order = new Order();
         }
-        public static void NewCustomerToDB(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
+        public static void EnterCustomerInfomation(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
             SqlConnection connect = connectToSql();
             try

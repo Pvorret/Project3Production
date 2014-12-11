@@ -10,9 +10,5 @@
         <Label Content="Username" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="41,166,0,0" VerticalAlignment="Top" Height="45" FontSize="20" FontWeight="Bold" Width="143"/>
         <Label Content="Password" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="41,233,0,0" VerticalAlignment="Top" Height="38" FontSize="20" FontWeight="Bold" Width="143"/>
         <Button Content="Login" Name="Login" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="225,292,0,0" VerticalAlignment="Top" Width="160" Height="37" FontSize="20" FontWeight="Bold" Click="Login_Click"/>
-        <Button Name="SælgerBtn" Content="MenuSælger" FontSize="12"  HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top" Width="78" Height="45" Click="SælgerBtn_Click"/>
-        <Button Name="ArbejderBtn" Content="ArbejderMenu" FontSize="12"  HorizontalAlignment="Left" Margin="68,87,0,0" VerticalAlignment="Top" Width="78" Height="45" Click="ArbejderBtn_Click"/>
-        <Button Name="PlanlæggerBtn" Content="PlanlæggerMenu" FontSize="12"  HorizontalAlignment="Left" Margin="125,25,0,0" VerticalAlignment="Top" Width="78" Height="45" Click="PlanlæggerBtn_Click"/>
-        
     </Grid>
 </Window>

@@ -15,12 +15,5 @@ namespace Project3ProductionLtd
         public string Address { get; set; }
         public string TelephoneNumber { get; set; }
         public string Email { get; set; }
-
-        public Customer(string name, string address, string telephonenumber, string email) {
-            Name = name;
-            Address = address;
-            TelephoneNumber = telephonenumber;
-            Email = email;
-        }
     }
 }

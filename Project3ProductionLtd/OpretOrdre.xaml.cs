@@ -37,10 +37,7 @@ namespace Project3ProductionLtd {
             Close();
         }
 
-        private void ProductTypeDropdown_DropDownOpened(object sender, EventArgs e) {
-            //for (int i = 0; i < Controller.getProductsFromDatabaseToProductList().Count; i++) {
-            //    ProductTypeDropdown.Items.Add(Controller.getProductsFromDatabaseToProductList()[i].Name);
-                
+        private void ProductTypeDropdown_DropDownOpened(object sender, EventArgs e) {                
             if (ProductTypeDropdown.Items.Count == 0) {
                 foreach (Product product in Controller.getProductsFromDatabaseToProductList()) {
                     ProductTypeDropdown.Items.Add(product.Name);
