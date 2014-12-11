@@ -441,7 +441,7 @@ namespace Project3ProductionLtd
         {
 
         }
-        public static void NewCustomerToDB(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
+        public static void EnterCustomerInfomation(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
             SqlConnection connect = connectToSql();
             try
