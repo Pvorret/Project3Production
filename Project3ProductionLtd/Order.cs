@@ -23,11 +23,6 @@ namespace Project3ProductionLtd
         public string OrderProductName2 { get; set; }
         public int OrderProductAmount2 { get; set; }
         public int Confirm { get; set; }
-        public string CustomerName { get; set; }        
-        public Order()
-        { 
-        
-        }
-        
+        public string CustomerName { get; set; }              
      }
 }
