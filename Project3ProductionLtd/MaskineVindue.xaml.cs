@@ -19,6 +19,7 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MaskineVindue : Window
     {
+        //GUI og Kode af Phillip
         OpretArbejdsplan opretArbejdsplanMenu = new OpretArbejdsplan();
         public MaskineVindue()
         {

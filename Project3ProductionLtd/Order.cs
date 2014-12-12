@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Project3ProductionLtd
 {
-    class Order
+    public class Order
     {
         public DateTime Deadline { get; set; }
         public string OrderName { get; set; }

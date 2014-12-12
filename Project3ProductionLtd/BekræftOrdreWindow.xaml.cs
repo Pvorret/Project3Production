@@ -19,6 +19,7 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class BekræftOrdreWindow : Window
     {
+        //GUI og Kode af Thomas
         MainMenuProduktionsplanlægger menuPlanlægger;
         public BekræftOrdreWindow()
         {

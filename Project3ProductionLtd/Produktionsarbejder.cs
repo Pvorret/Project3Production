@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project3ProductionLtd 
 {
-    class Produktionsarbejder
+    public class Produktionsarbejder
     {
         public string Name { get; set; }
         public List<Machine> machineList { get; set; }

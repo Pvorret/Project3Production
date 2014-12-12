@@ -17,6 +17,7 @@ namespace Project3ProductionLtd {
     /// Interaction logic for OpretOrdre.xaml
     /// </summary>
     public partial class OpretOrdre : Window {
+        //GUI og Kode af Nicolaj
         MainMenuSælger menuSælger;
         public OpretOrdre() {
             InitializeComponent();

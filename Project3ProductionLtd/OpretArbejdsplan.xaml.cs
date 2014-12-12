@@ -20,10 +20,10 @@ namespace Project3ProductionLtd
     /// 
     public partial class OpretArbejdsplan : Window
     {
+        //GUI og Kode af Phillip
         MainMenuProduktionsplanlægger menuPlanlægger;
         MaskineVindue maskineVindue;
-        //public string SelectedMachine { get; set; }
-
+        
         public OpretArbejdsplan()
         {
             InitializeComponent();

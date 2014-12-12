@@ -16,14 +16,17 @@ namespace Project3ProductionLtd {
     /// <summary>
     /// Interaction logic for MainMenuProduktionsplanlægger.xaml
     /// </summary>
-    public partial class MainMenuProduktionsplanlægger : Window {
-
+    public partial class MainMenuProduktionsplanlægger : Window 
+    {
+        //GUI af Nicolaj
+        //Kode af Phillip
         MainWindow mainWin;
         OpretArbejdsplan opretArbejdsplan;
         BekræftOrdreWindow bekræftOrdre;
         public MainMenuProduktionsplanlægger() 
         {
             InitializeComponent();
+            
             if (Controller.isOrderConfirmed() > 0)
             {
                 UnConfirmedOrderLabel.Content = Controller.isOrderConfirmed();
