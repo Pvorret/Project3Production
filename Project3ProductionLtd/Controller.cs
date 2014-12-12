@@ -400,12 +400,42 @@ namespace Project3ProductionLtd
             MessageBox.Show(productList.Count.ToString());
             return AddProductToTemporaryList(name, amount);
         }
-
-        public static void NewOrderToDB(List<Order> NewOrder) //Lavet af Nicolaj
+        
+        public static void NewOrderToDB(List<Product> NewOrder) //Lavet af Nicolaj
         {
             orderList = new List<Order>();
             Order order = new Order();
+            SqlConnection connect = connectToSql();
+            try {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("newOrder", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader;
+                reader = sqlCmd.ExecuteReader();
+
+                while (Controller.productList.Count < 3) {
+                    for (int i = 0; i < Controller.productList.Count; i++) {
+                        if (Controller.productList[0].Name.Equals(Convert.ToInt32(reader["ProductID"]) < 9) && reader["ProductNo1"].Equals("") || reader["ProductNo2"].Equals("")) {
+                                sqlCmd.Parameters.Add(new SqlParameter("@Deadline", "0"));
+                                sqlCmd.Parameters.Add(new SqlParameter("Width", 0));
+                                sqlCmd.Parameters.Add(new SqlParameter("@Height", 0));
+                                sqlCmd.Parameters.Add(new SqlParameter("@Spacing", 0));
+                                sqlCmd.Parameters.Add(new SqlParameter("@ProductNo1", Controller.productList[0].Name));
+                                sqlCmd.Parameters.Add(new SqlParameter("@AmountNo1", Controller.productList[0].Amount));
+
+                        }
+                    }
+                }
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.ToString());
+            }
+            finally {
+                connect.Close();
+                connect.Dispose();
+            }
         }
+       
         public static void EnterCustomerInfomation(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
             SqlConnection connect = connectToSql();
