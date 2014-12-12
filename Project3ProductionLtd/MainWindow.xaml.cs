@@ -20,6 +20,8 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainWindow : Window
     {
+        //GUI af Mads
+        //Kode af Phillip
         MainMenuSælger menuSælger;
         MainMenuProduktionsplanlægger menuPlanlægger;
         MainMenuProduktionsarbejder menuArbejder;

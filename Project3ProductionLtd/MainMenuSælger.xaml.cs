@@ -19,6 +19,7 @@ namespace Project3ProductionLtd
     /// </summary>
     public partial class MainMenuSælger : Window
     {
+        //GUI og Kode af Nicolaj
         MainWindow mainWin;
         OpretOrdre opretordre;
         OpretKunde opretKunde;

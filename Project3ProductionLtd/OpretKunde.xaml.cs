@@ -18,6 +18,8 @@ namespace Project3ProductionLtd {
     /// </summary>
     public partial class OpretKunde : Window 
     {
+        //GUI af Nicolaj
+        //Kode af Nicolaj og Thomas
         MainMenuSælger menuSælger;
         public OpretKunde() 
         {
