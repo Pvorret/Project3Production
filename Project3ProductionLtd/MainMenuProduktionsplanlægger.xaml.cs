@@ -24,6 +24,7 @@ namespace Project3ProductionLtd {
         public MainMenuProduktionsplanlægger() 
         {
             InitializeComponent();
+            
             if (Controller.isOrderConfirmed() > 0)
             {
                 UnConfirmedOrderLabel.Content = Controller.isOrderConfirmed();

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Project3ProductionLtd
 {
-    class Machine
+    public class Machine
     {
         public string Name { get; set; }
         public DateTime StartDate { get; set; }

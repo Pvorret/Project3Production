@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Project3ProductionLtd
 {
-    static class Controller
+    public static class Controller
     {
         public static List<Order> orderList;
         public static List<Product> productList;
@@ -436,8 +436,9 @@ namespace Project3ProductionLtd
             }
         }
        
-        public static void EnterCustomerInfomation(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
+        public static bool EnterCustomerInfomation(string name, string address, string phonNumber, string email) //Lavet af Nicolaj og Thomas
         {
+            bool check;
             SqlConnection connect = connectToSql();
             try
             {
@@ -449,16 +450,21 @@ namespace Project3ProductionLtd
                 sqlCmd.Parameters.Add(new SqlParameter("@PhoneNumber", address));
                 sqlCmd.Parameters.Add(new SqlParameter("@Email", email));
                 sqlCmd.ExecuteNonQuery();
+
+                check = true;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+                check = false;
             }
             finally
             {
                 connect.Close();
                 connect.Dispose();
             }
+
+            return check;
             
         }
         public static void confirmOrder(string orderName) //Lavet af Thomas
