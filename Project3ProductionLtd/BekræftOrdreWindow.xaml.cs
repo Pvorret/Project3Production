@@ -77,6 +77,8 @@ namespace Project3ProductionLtd
         }
         private void OrderSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Pro2.Value = 0;
+            Pro1M1.Value = 0;
             for (int i = 0; i < Controller.orderList.Count; i++)
             {
                 if (OrderSelected.SelectedItem.Equals(Controller.orderList[i].OrderName))
@@ -88,62 +90,75 @@ namespace Project3ProductionLtd
                     {
                         Product2.Content = Controller.orderList[i].OrderProductName2;
                     }
+                    Pro1M1.Minimum = 0;
+                    TimeSpan span = Controller.orderList[i].Deadline - DateTime.Now;
+                    Pro1M1.Maximum = span.TotalDays;
+                    string machineName = "";
+                    TimeSpan workTime = DateTime.Now - DateTime.Now;
                     foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName1))
                     {
                         for (int k = 0; k < machine.machineList.Count; k++)
                         {
-                            
-                                if (machine.machineList[k].StartDate < Controller.orderList[i].Deadline)
-                                {
-                                    Pro1M1.Minimum = 0;
-                                }
-                            
-                            if (machine.machineList[k].StartDate > Controller.orderList[i].Deadline)
+                            if (k == 0)
                             {
-                                TimeSpan span = machine.machineList[k].StartDate - Controller.orderList[i].Deadline;
-                                Pro1M1.Maximum = span.TotalDays;
+                                workTime = machine.machineList[k].EndDate - machine.machineList[k].StartDate;
+                                machineName = machine.machineList[k].Name;
                             }
-                            TimeSpan workTime = machine.machineList[k].StartDate - machine.machineList[k].EndDate;
                             if (k > 0)
                             {
-                                if (machine.machineList[k - 1].EndDate <= machine.machineList[k].EndDate)
+                                TimeSpan workTime2 = machine.machineList[k].EndDate - machine.machineList[k].StartDate;
+                                if (workTime <= workTime2)
                                 {
-                                    workTime = machine.machineList[k].EndDate - machine.machineList[k - 1].EndDate;
+                                    workTime = workTime2;
+                                    machineName = machine.machineList[k].Name;
                                 }
-                                Pro1M1.Value = workTime.TotalDays;
+                                if (workTime >= workTime2 && machineName == machine.machineList[k].Name)
+                                {
+                                    workTime = workTime2;
+                                    machineName = machine.machineList[k].Name;
+                                }
+                                
                             }
-                            
+                            Pro1M1.Value = workTime.TotalDays;
                                 //Pro1M1.Minimum = Convert.ToDouble(MachineEndTime.machineList[k].StartDate.ToOADate());
                                 //MachineProgess = Convert.ToDouble(MachineProgess + MachineEndTime.machineList[k].EndDate.ToOADate());
                         }
                     }
+                    Pro2.Minimum = 0;
+                    TimeSpan span2 = Controller.orderList[i].Deadline - DateTime.Now;
+                    Pro2.Maximum = span.TotalDays;
+                    string machineName2 = "";
+                    TimeSpan workTimefor2 = DateTime.Now - DateTime.Now;
                     foreach (Product machine in Controller.getRequiredMachineFromProductDB(Controller.orderList[i].OrderProductName2))
                     {
                         for (int k = 0; k < machine.machineList.Count; k++)
                         {
-                            if (machine.machineList[k].StartDate < Controller.orderList[i].Deadline)
-                                {
-                                    Pro2.Minimum = 0;
-                                }
-                            if (machine.machineList[k].StartDate > Controller.orderList[i].Deadline)
+                            if (k == 0)
                             {
-                                TimeSpan span = Controller.orderList[i].Deadline - machine.machineList[k].StartDate;
-                                Pro2.Maximum = span.TotalDays;
+                                workTimefor2 = machine.machineList[k].EndDate - machine.machineList[k].StartDate;
+                                machineName2 = machine.machineList[k].Name;
                             }
-                            TimeSpan workTime = machine.machineList[k].StartDate - machine.machineList[k].EndDate;
                             if (k > 0)
                             {
-                                if (machine.machineList[k - 1].EndDate <= machine.machineList[k].EndDate)
+                                TimeSpan workTime2 = machine.machineList[k].EndDate - machine.machineList[k].StartDate;
+                                if (workTimefor2 <= workTime2)
                                 {
-                                    workTime = machine.machineList[k].EndDate - machine.machineList[k - 1].EndDate;
+                                    workTimefor2 = workTime2;
+                                    machineName2 = machine.machineList[k].Name;
                                 }
-                            }
-                            Pro2.Value = workTime.TotalDays;
-                        }
-                    }
+                                if (workTimefor2 >= workTime2 && machineName == machine.machineList[k].Name)
+                                {
+                                    workTimefor2 = workTime2;
+                                    machineName2 = machine.machineList[k].Name;
+                                }
+                             }
+                             Pro2.Value = workTimefor2.TotalDays;
+                         }
+                     }
                 }
             }
         }
+        
         private void OrderSelected_DropDownOpened (object sender, EventArgs e)
         {
             if (OrderSelected.Items.Count == 0)
